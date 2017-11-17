@@ -1,0 +1,14 @@
+
+    Executa aquest codi.
+
+    Observa el comportament de les cometes màgiques de PHP, hem posat $i dins la cadena i ens ha mostrat el seu valor.
+
+    Explica perquè hem posat la barra invertida davant del símbol $.--> para que aparezca la variable tal y como se llama no el valor que tiene.
+
+    Digues de quin tipus és la variable $i.--> integer
+
+    Digues per a que serveix la funció gettype.--> para saber de que tipo es la variable
+
+    Exten el codi per tal de, a més de la variable $i, treballar igual amb variables de tipus: coma flotant, booleana i cadena de caracters.
+
+    Modifica el codi per saber de quin tipus és el valor que retorna gettype.

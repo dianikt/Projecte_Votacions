@@ -1,0 +1,14 @@
+
+    Executa el codi anterior.
+
+    De quin tipus és la variable $d?--> object
+
+    Observa que l'operador de concatenació de cadenes en php és el punt ( . )
+
+    Que retorna la invocació del mètode format de la classe datetime? --> la fecha de sistema
+
+    Prova a modificar el codi per a intentar mostrar $d tal com ho feiem a l'exercici anterior. És a dir echo "el valor de \$d és $d"; Ha funcionat?
+    no porque necesita que le des el formato en el que vas a printarlo.
+
+    Seria interessant, ara que sabem que la variable és de tipus objecte, conèixer de quina classe és aquell objecte.
+    Això ho podem fer amb la funció get_class(). Una pista: $classe_de_d = get_class( $d );

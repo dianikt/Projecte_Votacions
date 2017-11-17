@@ -1,0 +1,8 @@
+
+    Quina és la instrucció a PHP per a crear un array?
+    Es pot crear un array buit a PHP ó sempre s'hi han de posar valors a la creació?
+    Si li prenem el tipus a l'array amb la funció gettype(), quin tipus obtenim?
+    Com puc fer per afegir un element a l'array a partir de la darrera posició coneguda? Esmenta dues maneres diferents.
+    Com s'accedeix a un element d'un array?
+    Com s'esborra un element d'un array?
+    Fixat que el valor 7, emmagatzemat a la posició $a[1], segueix exactament a la mateixa posició després d'esborrar $a[0]. Això no seria així en altres llenguatges de programació, però a PHP els arrays, realment, són mapes ordenats. Farem el següent exercici per comprendre aquest concepte.
