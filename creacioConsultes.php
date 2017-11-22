@@ -7,6 +7,7 @@
 <html>
  <head>
 	 <meta charset="utf-8">
+<<<<<<< HEAD
     <title>Creación de preguntas</title>
      <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
      <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
@@ -16,6 +17,20 @@
     <script type="text/javascript">
         $("#datetime").datetimepicker({ format: 'yyyy-mm-dd hh:ii'});
     </script>
+=======
+	  	<title>Creación de preguntas</title>
+	  	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		  <link rel="stylesheet" href="/resources/demos/style.css">
+		  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		  <script src="javascript.js"></script>
+		  <script>
+			  $( function() {
+			    $( ".datepicker" ).datepicker();
+			  } );
+ 		 </script>
+	  	 	
+>>>>>>> 20180b43f94fa1ba9245beb9aa28d1d5faf391e6
  </head> 
 	 <body>
 
@@ -31,11 +46,11 @@
          </ul>
 	   	<form method="POST" action="creacioConsultes.php">
 	  		<label>Crea la pregunta:</label>	  		
-	  		<input type="text" name="pregunta"><br>
+	  		<input type="text" name="pregunta" required=""><br>
 	  		<label>Introduce la fecha de inicio:</label>
-	  		<input id="datetime"  readonly>
+	  		<input type="text"  class="datepicker" name= "fecha_inicio" required="">
 	  		<label>Introduce la fecha final:</label>
-	  		<input id="datetime" readonly>
+	  		<input type="text" class="datepicker" name = "fecha_final" required="" >
 	  		<input type="submit" value="envia">
 	  	</form>  
 	  	 	<?php
