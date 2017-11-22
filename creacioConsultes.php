@@ -9,13 +9,9 @@
 	 <meta charset="utf-8">
     <title>Creación de preguntas</title>
      <link href="css/style.css" rel="stylesheet" type="text/css"/>
-     <link href="js/javascript.js"/>
-    <script type="text/javascript">
-        $("#datetime").datetimepicker({ format: 'yyyy-mm-dd hh:ii'});
-    </script>
-
+     <script src="js/javascript.js"></script>
  </head> 
-	 <body>
+	 <body >
 
          <ul>
              <li><a href="profile.php">Perfil</a></li>
@@ -26,23 +22,17 @@
              }
              ?>
              <li id="logout"><a href="logout.php"><i><?php echo $login_session; ?></i> Cerrar Sesion</a></li>
-         </ul>
-	   	<form method="POST" action="creacioConsultes.php">
-	  		<label>Crea la pregunta:</label>	  		
-	  		<input type="text" name="pregunta" required=""><br>
-	  		<label>Introduce la fecha de inicio:</label>
-	  		<input type="text"  class="datepicker" name= "fecha_inicio" required="">
-	  		<label>Introduce la fecha final:</label>
-	  		<input type="text" class="datepicker" name = "fecha_final" required="" >
-	  		<input type="submit" value="envia">
-	  	</form>  
+         </ul><br>
+         <input type="submit" value="Crea Consulta" onclick="Votaciones()"> 
+         <div id= "crearConsultas"></div>
+	  	 	
 	  	 	<?php
 		  	 include 'conexionBD.php';		 
 		      //preparem i executem la consulta
 		if((isset($_POST["pregunta"])) && (isset($_POST["fecha_inicio"])) && (isset($_POST["fecha_final"]))){
-				      $query = $pdo->prepare("INSERT INTO consultes (titulo, fecha_inicio, fecha_final) VALUES ('".$_POST["titulo"]."','".$_POST["fecha_inicio"]."', '".$_POST["fecha_final"]."')");
+				      $query = $pdo->prepare("INSERT INTO consultes (pregunta, fecha_inicio, fecha_final) VALUES ('".$_POST["pregunta"]."','".$_POST["fecha_inicio"]."', '".$_POST["fecha_final"]."')");
 				      $query->execute();
-		 		}else echo '<script language="javascript">alert("Debe rellenar todos los campos!");</script>'; 
+		 		}
 	  		?>      
 	</body>
 </html>
