@@ -8,11 +8,12 @@
  <head>
 	 <meta charset="utf-8">
     <title>Creación de preguntas</title>
-     <script src="js/javascript.js"></script>
+     <link href="css/style.css" rel="stylesheet" type="text/css"/>
+     <link href="js/javascript.js"/>
     <script type="text/javascript">
         $("#datetime").datetimepicker({ format: 'yyyy-mm-dd hh:ii'});
     </script>
-     
+
  </head> 
 	 <body>
 
