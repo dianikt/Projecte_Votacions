@@ -1,17 +1,26 @@
 <?php
-    // Establishing Connection with Server by passing server_name, user_id and password as a parameter
-    $connection = mysqli_connect("localhost", "root", "password");
-    // Selecting Database
-    $db = mysqli_select_db($connection,"company");
+    try{
+    $hostname = "localhost";
+    $dbname = "votacions";
+    $username = "root";
+    $pw = "password";
+    $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
+    } catch (PDOException $e) {
+        echo "Failed to get DB handle: " . $e->getMessage() . "\n";
+        exit;
+    }
+
     session_start();// Starting Session
     // Storing Session
     $user_check=$_SESSION['login_user'];
     // SQL Query To Fetch Complete Information Of User
-    $ses_sql=mysqli_query($connection,"select username from login where username='$user_check'");
-    $row = mysqli_fetch_assoc($ses_sql);
-    $login_session =$row['username'];
+    $query = $pdo->prepare("select usuari from usuaris where usuari='$user_check'");
+    $query->execute();
+
+    $row = $query->fetch();
+    $login_session =$row['usuari'];
     if(!isset($login_session)){
-        mysqli_close($connection); // Closing Connection
+        $pdo=null; // Closing Connection
         header('Location: index.php'); // Redirecting To Home Page
     }
 ?>
