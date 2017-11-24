@@ -1,35 +1,49 @@
 var numconsulta = 0;
-
+var comprueba = 0;
  //document.getElementById("demo").innerHTML = "You wrote: " + valor;
 
-function validarCampoVacio(){
-	var comprueba = 0;
-	
-	var consulta = document.getElementById('consulta').value;
-	var elementoConsulta = document.getElementById('consulta');
-	var fecha_inicio = document.getElementById('fecha_inicio').value;
-	var elementoFechaInicio = document.getElementById('fecha_inicio');
-	var fecha_final = document.getElementById('fecha_final').value;
-	var elementoFechaFinal = document.getElementById('fecha_final');
+ function restarFechas() {
+	var fech1 = document.getElementById('fecha_inicio').value;
+	var fech2 = document.getElementById('fecha_final').value;
 
-	if (consulta != '')comprueba++;
-	else pintarRojo(elementoConsulta);
-	if (fecha_inicio != '')comprueba++;
-	else pintarRojo(elementoFechaInicio);
-	if (fecha_final != '')comprueba++;
-	else pintarRojo(elementoFechaFinal);
+	if((Date.parse(fech1)) > (Date.parse(fech2))){
+		return false;
+	}else return true;
+}
+
+function validarCampoVacio(elemento){
+	var consulta = document.getElementById(elemento).value;
+	var elementoConsulta = document.getElementById(elemento);
+
+	if (consulta == '') pintarRojo(elementoConsulta);
+
+	else {
+		borrarRojo(elementoConsulta);
+		comprueba++;
+	}	
 	
 	if (comprueba==3){		
-		elementoConsulta.setAttribute('disabled', 'true');
-		elementoFechaInicio.setAttribute('disabled', 'true');
-		elementoFechaFinal.setAttribute('disabled','true');
-		crearBotonRespuestas();		
+		var elementoConsulta = document.getElementById('consulta');
+		var fecha_inicio = document.getElementById('fecha_inicio');
+		var fecha_final= document.getElementById('fecha_final');
+
+		var fechas = restarFechas();
+		if (!fechas)alert('La fecha inicial no puede ser mayor que la fecha final');		
+		else{
+			elementoConsulta.setAttribute('disabled', 'true');
+			fecha_inicio.setAttribute('disabled', 'true');
+			fecha_final.setAttribute('disabled', 'true');			 
+			crearBotonRespuestas();	
+			}	
 	}
 	
 }
 
 function pintarRojo(elemento){
-	elemento.style.borderColor='red';
+	elemento.style.boxShadow='1px 1px 10px 1px #FA0909';
+}
+function borrarRojo(elemento){
+	elemento.style.boxShadow='';
 }
 
 function crearConsulta(){             // crea la consulta cuando le das al boton !! 
@@ -40,7 +54,7 @@ function crearConsulta(){             // crea la consulta cuando le das al boton
     input.setAttribute('type', 'text');
     input.setAttribute('name', 'consulta');
     input.setAttribute('id', 'consulta');  
-    input.setAttribute('onfocusout', 'validarCampoVacio()');    
+    input.setAttribute('onfocusout', 'validarCampoVacio("consulta")');    
     padre.parentNode.insertBefore(input, padre.nextSibling);
 
 	var label = document.createElement("label");
@@ -58,7 +72,7 @@ function crearFechaFinal(){         // crea los input de las fechas cuando le da
     inputFinal.setAttribute('type', 'date');
     inputFinal.setAttribute('name', 'fecha_final');
     inputFinal.setAttribute('id', 'fecha_final'); 
-    inputFinal.setAttribute('onfocusout', 'validarCampoVacio()'); 
+    inputFinal.setAttribute('onfocusout', 'validarCampoVacio("fecha_final")'); 
     padre.parentNode.insertBefore(inputFinal, padre.nextSibling);	
 
 	var labelFinal = document.createElement("label");
@@ -75,7 +89,7 @@ function crearFechaInicio(){
     inputInicio.setAttribute('type', 'date');
     inputInicio.setAttribute('name', 'fecha_inicio');
     inputInicio.setAttribute('id', 'fecha_inicio'); 
-    inputInicio.setAttribute('onfocusout', 'validarCampoVacio()'); 
+    inputInicio.setAttribute('onfocusout', 'validarCampoVacio("fecha_inicio")'); 
   	padre.parentNode.insertBefore(inputInicio, padre.nextSibling);
 
 	var labelInicio = document.createElement("label");
