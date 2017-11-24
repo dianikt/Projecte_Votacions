@@ -29,11 +29,16 @@
 	  	 	<?php
 		  	 include 'conexionBD.php';		 
 		      //preparem i executem la consulta
-		if((isset($_POST["pregunta"])) && (isset($_POST["fecha_inicio"])) && (isset($_POST["fecha_final"]))){
+		     if((isset($_POST["pregunta"])) && (isset($_POST["fecha_inicio"])) && (isset($_POST["fecha_final"]))){
 				      $query = $pdo->prepare("INSERT INTO consultes (pregunta, fecha_inicio, fecha_final) VALUES ('".$_POST["pregunta"]."','".$_POST["fecha_inicio"]."', '".$_POST["fecha_final"]."')");
 				      $query->execute();
 		 		}
-	  		?>      
+	  		?>
+	  	 
+    	<div id="crearRespuesta"></div>   
+
+    	<p id="demo"></p>
+  
 	</body>
 </html>
 
