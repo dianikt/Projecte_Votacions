@@ -8,12 +8,13 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <ul>
+    <ul id="encabezado">
         <li><a href="profile.php">Perfil</a></li>
         <li><a class="active" href="consultas.php">Consultas</a></li>
         <?php
         if($login_session=="admin"){
             echo "<li><a href='creacioConsultes.php'>Crear Consulta</a></li>";
+            echo "<li><a href='form_invitacions.php'>Invitar consulta</a></li>";
         }
         ?>
         <li id="logout"><a href="logout.php"><i><?php echo $login_session; ?></i> Cerrar Sesion</a></li>
@@ -76,8 +77,9 @@
 
 
         ?>
-        <img class="edit-icon" src="img/icon-edit.png" onclick="">
-
     </div>
+    <footer>
+        <p>Created by: Diana, Dani</p>
+    </footer>
 </body>
 </html>

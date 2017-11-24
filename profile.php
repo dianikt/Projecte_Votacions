@@ -8,12 +8,13 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <ul>
+    <ul id="encabezado">
         <li><a class="active" href="profile.php">Perfil</a></li>
         <li><a href="consultas.php">Consultas</a></li>
         <?php
             if($login_session=="admin"){
                 echo "<li><a href='creacioConsultes.php'>Crear Consulta</a></li>";
+                echo "<li><a href='form_invitacions.php'>Invitar consulta</a></li>";
             }
         ?>
 

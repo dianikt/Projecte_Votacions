@@ -24,7 +24,7 @@ hr {
     margin-bottom:30px
 }
 html,body{
-    margin:0 20%;
+    margin:0 10%;
     background-color: #F8EBEB;
     height: 94%;
 }
@@ -34,8 +34,8 @@ html,body{
     font-size:20px;
     background-color:#DCE6F7
 }
-#logout {
-    float:right;
+#logout{
+    float:right !important;
 }
 a {
     text-decoration:none;
@@ -45,7 +45,7 @@ i {
     color:#6495ed
 }
 
-ul {
+#encabezado{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -54,11 +54,11 @@ ul {
     border-radius: 15px 15px 0 0;
 }
 
-li {
+#encabezado li {
     float: left;
 }
 
-li a {
+#encabezado li a {
     display: block;
     color: white;
     text-align: center;
@@ -90,12 +90,14 @@ footer>p{
     color: white;
     width: 100%;
     padding-left: 35%;
+
 }
 
 .edit-icon{
+    margin-top: 5px;
+    margin-left: 10px;
     width: 20px;
 }
 .edit-icon:hover{
     cursor: pointer;
 }
-

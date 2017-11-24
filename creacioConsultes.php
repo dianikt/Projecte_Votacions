@@ -13,12 +13,13 @@
  </head> 
 	 <body >
 
-         <ul>
+         <ul id="encabezado">
              <li><a href="profile.php">Perfil</a></li>
              <li><a href="consultas.php">Consultas</a></li>
              <?php
              if($login_session=="admin"){
                  echo "<li><a class='active' href='creacioConsultes.php'>Crear Consulta</a></li>";
+                 echo "<li><a href='form_invitacions.php'>Invitar consulta</a></li>";
              }
              ?>
              <li id="logout"><a href="logout.php"><i><?php echo $login_session; ?></i> Cerrar Sesion</a></li>
@@ -37,8 +38,17 @@
 	  	 
     	<div id="crearRespuesta"></div>   
 
-    	<p id="demo"></p>
+        <div id="inputRespuesta"></div>
+
+    	<ol id="listaDesordenada"></ol>
   
+
+
+        <div id="enviarPreguntas"></div>
+         <footer>
+             <p>Created by: Diana, Dani</p>
+         </footer>
 	</body>
+
 </html>
 
