@@ -3,7 +3,7 @@
     $hostname = "localhost";
     $dbname = "votacions";
     $username = "root";
-    $pw = "admin";
+    $pw = "password";
     $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
     } catch (PDOException $e) {
         echo "Failed to get DB handle: " . $e->getMessage() . "\n";
@@ -11,6 +11,10 @@
     }
 
     session_start();// Starting Session
+    $fecha_actual = getdate();
+    $_SESSION['year']=$fecha_actual['year'];
+    $_SESSION['mon']=$fecha_actual['mon'];
+    $_SESSION['day']=$fecha_actual['wday'];
     // Storing Session
     $user_check=$_SESSION['login_user'];
     // SQL Query To Fetch Complete Information Of User

@@ -22,5 +22,8 @@
     <div id="consultas">
 
     </div>
+    <footer>
+        <p>Created by: Diana, Dani</p>
+    </footer>
 </body>
 </html>
