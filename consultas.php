@@ -76,6 +76,8 @@
 
 
         ?>
+        <img class="edit-icon" src="img/icon-edit.png" onclick="">
+
     </div>
 </body>
 </html>
