@@ -23,29 +23,46 @@
              ?>
              <li id="logout"><a href="logout.php"><i><?php echo $login_session; ?></i> Cerrar Sesion</a></li>
          </ul>
-         <div class="contenido">
-             <input type="submit" value="Crea Consulta" onclick="Votaciones()">
-             <div id= "crearConsultas"></div>
+         <div class="contenido">       
+            <input type="button" value="Crea Consulta" onclick="Votaciones()">
 
-             <?php
-             include 'conexionBD.php';
-             //preparem i executem la consulta
-             if((isset($_POST["pregunta"])) && (isset($_POST["fecha_inicio"])) && (isset($_POST["fecha_final"]))){
-                 $query = $pdo->prepare("INSERT INTO consultes (pregunta, fecha_inicio, fecha_final) VALUES ('".$_POST["pregunta"]."','".$_POST["fecha_inicio"]."', '".$_POST["fecha_final"]."')");
-                 $query->execute();
-             }
-             ?>
+             <form action="" method="POST">
+                 <div id= "crearConsultas">                      
+               
+                 </div>
+                 <div id="crearRespuesta"></div>
+                 <div id="inputRespuesta"></div>
+                 <ol id="listaDesordenada"></ol>
+                 <div id="enviarPreguntas"></div>
+            
+            <?php include 'conexionBD.php'; ?>      
+          
+            <?php
+              
+                if(isset($_POST['consulta_enviar'])){      
+                         
+                    $query = $pdo->prepare("INSERT INTO `consultes`(`id_consulta`, `pregunta`, `fecha_inicio`, `fecha_final`) VALUES (null,'".$_POST["consulta_enviar"]."','".$_POST["fecha_inicio"]."', '".$_POST["fecha_final"]."')");
+                    $query->execute();                  
+                               
 
-             <div id="crearRespuesta"></div>
+                    $query = $pdo->prepare("SELECT `id_consulta` FROM `consultes` WHERE `pregunta` = '".$_POST["consulta_enviar"]."'");
+                    $codigo = $query->execute();        
+                }
+                       
 
-             <div id="inputRespuesta"></div>
+              
 
-             <ol id="listaDesordenada"></ol>
+                if(isset($_POST['respuesta'])){
 
-
-
-             <div id="enviarPreguntas"></div>
-         </div>
+                      echo $codigo[`id_consulta`];  
+                        $insert = $pdo->prepare("INSERT INTO `respuestas`(`id_respuesta`, `respuesta`, `id_consultas`) VALUES (NULL, 'no', 10)");
+                        $insert->execute();
+                    }
+               
+            ?>
+          
+            </form>
+         </div>        
          <footer>
              <p>Created by: Diana, Dani</p>
          </footer>

@@ -16,6 +16,8 @@ var numRespuestas = 0;
         	
             var li = document.createElement('li');  // creamos el elemento <li>
             li.setAttribute('id', nuevo);
+            li.setAttribute('name', 'pregunta');
+            li.setAttribute('value', nuevo);
 			var textPregunta = document.createTextNode(nuevo);
 			var boton = document.createElement('input');	
 		    boton.setAttribute('type', 'button');  //creamos el boton para eliminar
@@ -67,7 +69,6 @@ function crearInputRespuesta(){
 	var br = document.createElement("br");
     var input = document.createElement("input");
     input.setAttribute('type', 'text');
-    input.setAttribute('name', 'respuesta');
     input.setAttribute('id', 'crear_respuesta');   
   	padre.parentNode.insertBefore(input, padre.nextSibling);
 
@@ -102,8 +103,8 @@ function crearConsulta(){             // crea la consulta cuando le das al boton
     icon.setAttribute('onclick', 'editar("consulta")');
     padre.parentNode.insertBefore(icon, padre.nextSibling);
     input.setAttribute('type', 'text');
-    input.setAttribute('name', 'consulta');
-    input.setAttribute('id', 'consulta');  
+    input.setAttribute('name', 'consulta_enviar');
+    input.setAttribute('id', 'consulta');     
     input.setAttribute('onfocusout', 'validarCampoVacio("consulta")');    
     padre.parentNode.insertBefore(input, padre.nextSibling);
 
@@ -111,7 +112,7 @@ function crearConsulta(){             // crea la consulta cuando le das al boton
 	var insertarTexto = document.createTextNode("Crear consulta: ");
     label.appendChild(insertarTexto);
     padre.parentNode.insertBefore(label, padre.nextSibling);
-  
+    validarCampoVacio("consulta");
 }
 
 
@@ -151,7 +152,7 @@ function crearFechaInicio(){
     padre.parentNode.insertBefore(icon, padre.nextSibling);
     inputInicio.setAttribute('type', 'date');
     inputInicio.setAttribute('name', 'fecha_inicio');
-    inputInicio.setAttribute('id', 'fecha_inicio'); 
+    inputInicio.setAttribute('id', 'fecha_inicio');     
     inputInicio.setAttribute('onfocusout', 'validarCampoVacio("fecha_inicio")'); 
   	padre.parentNode.insertBefore(inputInicio, padre.nextSibling);
 
@@ -170,7 +171,8 @@ function validarCampoVacio(elemento){
 	if (consulta == '') pintarRojo(elementoConsulta);
 
 	else {
-        elementoConsulta.setAttribute('disabled', 'true');
+        //elementoConsulta.setAttribute('disabled', 'true');
+        elementoConsulta.setAttribute('value',consulta);
 		borrarRojo(elementoConsulta);
 		comprueba++;
 	}	
