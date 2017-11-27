@@ -20,7 +20,7 @@
 
         <li id="logout"><a href="logout.php"><i><?php echo $login_session; ?></i> Cerrar Sesion</a></li>
     </ul>
-    <div id="consultas">
+    <div class="contenido">
 
     </div>
     <footer>

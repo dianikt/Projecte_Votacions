@@ -2,14 +2,7 @@
 /*----------------------------------------------
 CSS Settings For HTML Div ExactCenter
 ------------------------------------------------*/
-#main {
-    width:960px;
-    margin:50px auto;
-    font-family:raleway
-}
-span {
-    color:red
-}
+
 h2 {
     background-color:#FEFFED;
     text-align:center;
@@ -74,9 +67,10 @@ li a:hover:not(.active) {
     background-color: #4CAF50;
 }
 
-#consultas{
+.contenido{
+    padding: 50px;
     background-color: #cccccc;
-    height: 100%;
+    height: 90%;
     margin-bottom: 0;
 }
 footer{
@@ -100,4 +94,18 @@ footer>p{
 }
 .edit-icon:hover{
     cursor: pointer;
+}
+table{
+    border-radius: 20px;
+
+}
+
+table, th, td {
+    border: 4px solid #F8EBEB;
+    width: 80%;
+    background-color: #cccccc;
+}
+th, td {
+    padding: 5px;
+    text-align: center;
 }

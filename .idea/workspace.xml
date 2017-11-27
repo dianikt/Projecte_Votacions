@@ -7,7 +7,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/creacioConsultes.php" afterPath="$PROJECT_DIR$/creacioConsultes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/form_invitacions.php" afterPath="$PROJECT_DIR$/form_invitacions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/javascript.js" afterPath="$PROJECT_DIR$/js/javascript.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profile.php" afterPath="$PROJECT_DIR$/profile.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +21,8 @@
       <file leaf-file-name="profile.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/profile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="396">
+              <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -32,24 +31,9 @@
       <file leaf-file-name="conexionBD.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conexionBD.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="2" />
+            <state relative-caret-position="198">
+              <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="session.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/session.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-              <folding>
-                <marker date="1511544922000" expanded="true" signature="663:703" ph="select usern... login" />
-                <marker date="1511544922000" expanded="true" signature="663:715" ph="select usern... login" />
-                <marker date="1511544922000" expanded="true" signature="663:716" ph="select usern... login" />
-                <marker date="1511544922000" expanded="true" signature="663:718" ph="select usern... login" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -79,20 +63,20 @@
       <file leaf-file-name="creacioConsultes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/creacioConsultes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="49" column="18" lean-forward="false" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+            <state relative-caret-position="198">
+              <caret line="11" column="45" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
-                <marker date="1511549127841" expanded="true" signature="1241:1392" ph="INSERT INTO consultes... " />
+                <marker date="1511550777545" expanded="true" signature="1298:1449" ph="INSERT INTO consultes... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="822">
-              <caret line="96" column="20" lean-forward="false" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
+            <state relative-caret-position="498">
+              <caret line="91" column="22" lean-forward="true" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -102,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/js/javascript.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1368">
-              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -111,17 +95,29 @@
       <file leaf-file-name="consultas.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/consultas.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="822">
-              <caret line="82" column="13" lean-forward="false" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
+            <state relative-caret-position="70">
+              <caret line="51" column="105" lean-forward="true" selection-start-line="51" selection-start-column="105" selection-end-line="51" selection-end-column="105" />
               <folding>
-                <marker date="1511549090617" expanded="true" signature="792:924" ph="INSERT INTO `votos`... " />
-                <marker date="1511549090617" expanded="true" signature="1006:1116" ph="DELETE FROM " />
-                <marker date="1511549090617" expanded="true" signature="1304:1375" ph="select id_us... usuaris" />
-                <marker date="1511549090617" expanded="true" signature="1652:1719" ph="select id_co... invitacions" />
-                <marker date="1511549090617" expanded="true" signature="2002:2105" ph="select id_co... consultes" />
-                <marker date="1511549090617" expanded="true" signature="2489:2502" ph="..." />
-                <marker date="1511549090617" expanded="true" signature="2610:2690" ph="select id_re... respuestas" />
+                <marker date="1511798036769" expanded="true" signature="844:976" ph="INSERT INTO `votos`... " />
+                <marker date="1511798036769" expanded="true" signature="1058:1168" ph="DELETE FROM " />
+                <marker date="1511798036769" expanded="true" signature="1356:1427" ph="select id_us... usuaris" />
+                <marker date="1511798036769" expanded="true" signature="1703:1779" ph="select count... invitacions" />
+                <marker date="1511798036769" expanded="true" signature="2051:2118" ph="select id_co... invitacions" />
+                <marker date="1511798036769" expanded="true" signature="2600:2703" ph="select id_co... consultes" />
+                <marker date="1511798036769" expanded="true" signature="3107:3120" ph="..." />
+                <marker date="1511798036769" expanded="true" signature="3236:3316" ph="select id_re... respuestas" />
+                <marker date="1511798036769" expanded="true" signature="4601:4654" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="desplazamineto.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/desplazamineto.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="822">
+              <caret line="62" column="69" lean-forward="true" selection-start-line="62" selection-start-column="69" selection-end-line="62" selection-end-column="69" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -130,9 +126,10 @@
         <entry file="file://$PROJECT_DIR$/form_invitacions.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="666">
-              <caret line="37" column="15" lean-forward="false" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
+              <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
               <folding>
-                <marker date="1511549127848" expanded="true" signature="1116:1178" ph="INSERT INTO invitacions... " />
+                <marker date="1511551365079" expanded="true" signature="328:390" ph="INSERT INTO invitacions... " />
+                <marker date="1511551365079" expanded="true" signature="1544:1587" ph="select id_co... consultes" />
               </folding>
             </state>
           </provider>
@@ -151,14 +148,15 @@
         <option value="$PROJECT_DIR$/logout.php" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/scrum/info.txt" />
-        <option value="$PROJECT_DIR$/profile.php" />
         <option value="$PROJECT_DIR$/conexionBD.php" />
         <option value="$PROJECT_DIR$/session.php" />
         <option value="$PROJECT_DIR$/js/javascript.js" />
-        <option value="$PROJECT_DIR$/consultas.php" />
-        <option value="$PROJECT_DIR$/form_invitacions.php" />
+        <option value="$PROJECT_DIR$/profile.php" />
         <option value="$PROJECT_DIR$/creacioConsultes.php" />
+        <option value="$PROJECT_DIR$/form_invitacions.php" />
         <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/consultas.php" />
+        <option value="$PROJECT_DIR$/js/desplazamineto.js" />
       </list>
     </option>
   </component>
@@ -189,8 +187,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,6 +213,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -252,12 +250,14 @@
       <workItem from="1511457586456" duration="7993000" />
       <workItem from="1511466726067" duration="5238000" />
       <workItem from="1511520107820" duration="2529000" />
-      <workItem from="1511535988620" duration="8482000" />
+      <workItem from="1511535988620" duration="8609000" />
+      <workItem from="1511550251250" duration="1393000" />
+      <workItem from="1511795332737" duration="2872000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49452000" />
+    <option name="totallyTimeSpent" value="53844000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="82" width="1920" height="1081" extended-state="6" />
@@ -316,22 +316,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/consultas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="63" column="95" lean-forward="false" selection-start-line="63" selection-start-column="95" selection-end-line="63" selection-end-column="95" />
-          <folding>
-            <marker date="1511549090617" expanded="true" signature="792:924" ph="INSERT INTO `votos`... " />
-            <marker date="1511549090617" expanded="true" signature="1006:1116" ph="DELETE FROM " />
-            <marker date="1511549090617" expanded="true" signature="1304:1375" ph="select id_us... usuaris" />
-            <marker date="1511549090617" expanded="true" signature="1652:1719" ph="select id_co... invitacions" />
-            <marker date="1511549090617" expanded="true" signature="2002:2105" ph="select id_co... consultes" />
-            <marker date="1511549090617" expanded="true" signature="2489:2502" ph="..." />
-            <marker date="1511549090617" expanded="true" signature="2610:2690" ph="select id_re... respuestas" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/profile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -386,7 +370,7 @@
         <state relative-caret-position="198">
           <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
           <folding>
-            <marker date="1511549127841" expanded="true" signature="1241:1392" ph="INSERT INTO consultes... " />
+            <marker date="1511550777545" expanded="true" signature="1298:1449" ph="INSERT INTO consultes... " />
           </folding>
         </state>
       </provider>
@@ -411,7 +395,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="34" column="39" lean-forward="true" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -420,13 +403,15 @@
         <state relative-caret-position="432">
           <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
           <folding>
-            <marker date="1511549090617" expanded="true" signature="792:924" ph="INSERT INTO `votos`... " />
-            <marker date="1511549090617" expanded="true" signature="1006:1116" ph="DELETE FROM " />
-            <marker date="1511549090617" expanded="true" signature="1304:1375" ph="select id_us... usuaris" />
-            <marker date="1511549090617" expanded="true" signature="1652:1719" ph="select id_co... invitacions" />
-            <marker date="1511549090617" expanded="true" signature="2002:2105" ph="select id_co... consultes" />
-            <marker date="1511549090617" expanded="true" signature="2489:2502" ph="..." />
-            <marker date="1511549090617" expanded="true" signature="2610:2690" ph="select id_re... respuestas" />
+            <marker date="1511798036769" expanded="true" signature="844:976" ph="INSERT INTO `votos`... " />
+            <marker date="1511798036769" expanded="true" signature="1058:1168" ph="DELETE FROM " />
+            <marker date="1511798036769" expanded="true" signature="1356:1427" ph="select id_us... usuaris" />
+            <marker date="1511798036769" expanded="true" signature="1703:1779" ph="select count... invitacions" />
+            <marker date="1511798036769" expanded="true" signature="2051:2118" ph="select id_co... invitacions" />
+            <marker date="1511798036769" expanded="true" signature="2600:2703" ph="select id_co... consultes" />
+            <marker date="1511798036769" expanded="true" signature="3107:3120" ph="..." />
+            <marker date="1511798036769" expanded="true" signature="3236:3316" ph="select id_re... respuestas" />
+            <marker date="1511798036769" expanded="true" signature="4601:4654" ph="..." />
           </folding>
         </state>
       </provider>
@@ -464,7 +449,7 @@
         <state relative-caret-position="198">
           <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
           <folding>
-            <marker date="1511549127841" expanded="true" signature="1241:1392" ph="INSERT INTO consultes... " />
+            <marker date="1511550777545" expanded="true" signature="1298:1449" ph="INSERT INTO consultes... " />
           </folding>
         </state>
       </provider>
@@ -490,13 +475,15 @@
         <state relative-caret-position="252">
           <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
           <folding>
-            <marker date="1511549090617" expanded="true" signature="792:924" ph="INSERT INTO `votos`... " />
-            <marker date="1511549090617" expanded="true" signature="1006:1116" ph="DELETE FROM " />
-            <marker date="1511549090617" expanded="true" signature="1304:1375" ph="select id_us... usuaris" />
-            <marker date="1511549090617" expanded="true" signature="1652:1719" ph="select id_co... invitacions" />
-            <marker date="1511549090617" expanded="true" signature="2002:2105" ph="select id_co... consultes" />
-            <marker date="1511549090617" expanded="true" signature="2489:2502" ph="..." />
-            <marker date="1511549090617" expanded="true" signature="2610:2690" ph="select id_re... respuestas" />
+            <marker date="1511798036769" expanded="true" signature="844:976" ph="INSERT INTO `votos`... " />
+            <marker date="1511798036769" expanded="true" signature="1058:1168" ph="DELETE FROM " />
+            <marker date="1511798036769" expanded="true" signature="1356:1427" ph="select id_us... usuaris" />
+            <marker date="1511798036769" expanded="true" signature="1703:1779" ph="select count... invitacions" />
+            <marker date="1511798036769" expanded="true" signature="2051:2118" ph="select id_co... invitacions" />
+            <marker date="1511798036769" expanded="true" signature="2600:2703" ph="select id_co... consultes" />
+            <marker date="1511798036769" expanded="true" signature="3107:3120" ph="..." />
+            <marker date="1511798036769" expanded="true" signature="3236:3316" ph="select id_re... respuestas" />
+            <marker date="1511798036769" expanded="true" signature="4601:4654" ph="..." />
           </folding>
         </state>
       </provider>
@@ -586,13 +573,15 @@
         <state relative-caret-position="252">
           <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
           <folding>
-            <marker date="1511549090617" expanded="true" signature="792:924" ph="INSERT INTO `votos`... " />
-            <marker date="1511549090617" expanded="true" signature="1006:1116" ph="DELETE FROM " />
-            <marker date="1511549090617" expanded="true" signature="1304:1375" ph="select id_us... usuaris" />
-            <marker date="1511549090617" expanded="true" signature="1652:1719" ph="select id_co... invitacions" />
-            <marker date="1511549090617" expanded="true" signature="2002:2105" ph="select id_co... consultes" />
-            <marker date="1511549090617" expanded="true" signature="2489:2502" ph="..." />
-            <marker date="1511549090617" expanded="true" signature="2610:2690" ph="select id_re... respuestas" />
+            <marker date="1511798036769" expanded="true" signature="844:976" ph="INSERT INTO `votos`... " />
+            <marker date="1511798036769" expanded="true" signature="1058:1168" ph="DELETE FROM " />
+            <marker date="1511798036769" expanded="true" signature="1356:1427" ph="select id_us... usuaris" />
+            <marker date="1511798036769" expanded="true" signature="1703:1779" ph="select count... invitacions" />
+            <marker date="1511798036769" expanded="true" signature="2051:2118" ph="select id_co... invitacions" />
+            <marker date="1511798036769" expanded="true" signature="2600:2703" ph="select id_co... consultes" />
+            <marker date="1511798036769" expanded="true" signature="3107:3120" ph="..." />
+            <marker date="1511798036769" expanded="true" signature="3236:3316" ph="select id_re... respuestas" />
+            <marker date="1511798036769" expanded="true" signature="4601:4654" ph="..." />
           </folding>
         </state>
       </provider>
@@ -610,7 +599,7 @@
         <state relative-caret-position="324">
           <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
           <folding>
-            <marker date="1511549127841" expanded="true" signature="1241:1392" ph="INSERT INTO consultes... " />
+            <marker date="1511550777545" expanded="true" signature="1298:1449" ph="INSERT INTO consultes... " />
           </folding>
         </state>
       </provider>
@@ -679,13 +668,15 @@
         <state relative-caret-position="216">
           <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
           <folding>
-            <marker date="1511549090617" expanded="true" signature="792:924" ph="INSERT INTO `votos`... " />
-            <marker date="1511549090617" expanded="true" signature="1006:1116" ph="DELETE FROM " />
-            <marker date="1511549090617" expanded="true" signature="1304:1375" ph="select id_us... usuaris" />
-            <marker date="1511549090617" expanded="true" signature="1652:1719" ph="select id_co... invitacions" />
-            <marker date="1511549090617" expanded="true" signature="2002:2105" ph="select id_co... consultes" />
-            <marker date="1511549090617" expanded="true" signature="2489:2502" ph="..." />
-            <marker date="1511549090617" expanded="true" signature="2610:2690" ph="select id_re... respuestas" />
+            <marker date="1511798036769" expanded="true" signature="844:976" ph="INSERT INTO `votos`... " />
+            <marker date="1511798036769" expanded="true" signature="1058:1168" ph="DELETE FROM " />
+            <marker date="1511798036769" expanded="true" signature="1356:1427" ph="select id_us... usuaris" />
+            <marker date="1511798036769" expanded="true" signature="1703:1779" ph="select count... invitacions" />
+            <marker date="1511798036769" expanded="true" signature="2051:2118" ph="select id_co... invitacions" />
+            <marker date="1511798036769" expanded="true" signature="2600:2703" ph="select id_co... consultes" />
+            <marker date="1511798036769" expanded="true" signature="3107:3120" ph="..." />
+            <marker date="1511798036769" expanded="true" signature="3236:3316" ph="select id_re... respuestas" />
+            <marker date="1511798036769" expanded="true" signature="4601:4654" ph="..." />
           </folding>
         </state>
       </provider>
@@ -703,7 +694,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -730,21 +720,13 @@
     <entry file="file://$PROJECT_DIR$/session.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
           <folding>
             <marker date="1511544922000" expanded="true" signature="663:703" ph="select usern... login" />
             <marker date="1511544922000" expanded="true" signature="663:715" ph="select usern... login" />
             <marker date="1511544922000" expanded="true" signature="663:716" ph="select usern... login" />
             <marker date="1511544922000" expanded="true" signature="663:718" ph="select usern... login" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conexionBD.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,8 +750,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/profile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="27" selection-end-column="13" />
+        <state relative-caret-position="396">
+          <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conexionBD.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -777,7 +767,7 @@
     <entry file="file://$PROJECT_DIR$/js/javascript.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1368">
-          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -785,43 +775,54 @@
     <entry file="file://$PROJECT_DIR$/form_invitacions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="666">
-          <caret line="37" column="15" lean-forward="false" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
+          <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
           <folding>
-            <marker date="1511549127848" expanded="true" signature="1116:1178" ph="INSERT INTO invitacions... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/consultas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="822">
-          <caret line="82" column="13" lean-forward="false" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
-          <folding>
-            <marker date="1511549090617" expanded="true" signature="792:924" ph="INSERT INTO `votos`... " />
-            <marker date="1511549090617" expanded="true" signature="1006:1116" ph="DELETE FROM " />
-            <marker date="1511549090617" expanded="true" signature="1304:1375" ph="select id_us... usuaris" />
-            <marker date="1511549090617" expanded="true" signature="1652:1719" ph="select id_co... invitacions" />
-            <marker date="1511549090617" expanded="true" signature="2002:2105" ph="select id_co... consultes" />
-            <marker date="1511549090617" expanded="true" signature="2489:2502" ph="..." />
-            <marker date="1511549090617" expanded="true" signature="2610:2690" ph="select id_re... respuestas" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/creacioConsultes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="49" column="18" lean-forward="false" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
-          <folding>
-            <marker date="1511549127841" expanded="true" signature="1241:1392" ph="INSERT INTO consultes... " />
+            <marker date="1511551365079" expanded="true" signature="328:390" ph="INSERT INTO invitacions... " />
+            <marker date="1511551365079" expanded="true" signature="1544:1587" ph="select id_co... consultes" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="91" column="22" lean-forward="true" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/creacioConsultes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="45" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <marker date="1511550777545" expanded="true" signature="1298:1449" ph="INSERT INTO consultes... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/consultas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="51" column="105" lean-forward="true" selection-start-line="51" selection-start-column="105" selection-end-line="51" selection-end-column="105" />
+          <folding>
+            <marker date="1511798036769" expanded="true" signature="844:976" ph="INSERT INTO `votos`... " />
+            <marker date="1511798036769" expanded="true" signature="1058:1168" ph="DELETE FROM " />
+            <marker date="1511798036769" expanded="true" signature="1356:1427" ph="select id_us... usuaris" />
+            <marker date="1511798036769" expanded="true" signature="1703:1779" ph="select count... invitacions" />
+            <marker date="1511798036769" expanded="true" signature="2051:2118" ph="select id_co... invitacions" />
+            <marker date="1511798036769" expanded="true" signature="2600:2703" ph="select id_co... consultes" />
+            <marker date="1511798036769" expanded="true" signature="3107:3120" ph="..." />
+            <marker date="1511798036769" expanded="true" signature="3236:3316" ph="select id_re... respuestas" />
+            <marker date="1511798036769" expanded="true" signature="4601:4654" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/desplazamineto.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="822">
-          <caret line="96" column="20" lean-forward="false" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
+          <caret line="62" column="69" lean-forward="true" selection-start-line="62" selection-start-column="69" selection-end-line="62" selection-end-column="69" />
           <folding />
         </state>
       </provider>
