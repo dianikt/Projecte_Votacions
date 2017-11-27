@@ -25,30 +25,43 @@
          </ul>
          <div class="contenido">       
             <input type="button" value="Crea Consulta" onclick="Votaciones()">
+
+             <form action="" method="POST">
+                 <div id= "crearConsultas">                      
+               
+                 </div>
+                 <div id="crearRespuesta"></div>
+                 <div id="inputRespuesta"></div>
+                 <ol id="listaDesordenada"></ol>
+                 <div id="enviarPreguntas"></div>
             
             <?php include 'conexionBD.php'; ?>      
           
             <?php
-                    if(isset($_POST['consulta'])){  
-                   
-                    echo $_POST['consulta'];
-                    echo $_POST['fecha_inicio'];
+              
+                if(isset($_POST['consulta_enviar'])){      
+                         
+                    $query = $pdo->prepare("INSERT INTO `consultes`(`id_consulta`, `pregunta`, `fecha_inicio`, `fecha_final`) VALUES (null,'".$_POST["consulta_enviar"]."','".$_POST["fecha_inicio"]."', '".$_POST["fecha_final"]."')");
+                    $query->execute();                  
+                               
 
-                    $query = $pdo->prepare("INSERT INTO `consultes`(`id_consulta`, `pregunta`, `fecha_inicio`, `fecha_final`) VALUES (null,'".$_POST["consulta"]."','".$_POST["fecha_inicio"]."', '".$_POST["fecha_final"]."')");
-                    $query->execute();
-                    unset($_POST['consulta']);               
-                    
-                 }
-                
+                    $query = $pdo->prepare("SELECT `id_consulta` FROM `consultes` WHERE `pregunta` = '".$_POST["consulta_enviar"]."'");
+                    $codigo = $query->execute();        
+                }
+                       
 
+              
+
+                if(isset($_POST['respuesta'])){
+
+                      echo $codigo[`id_consulta`];  
+                        $insert = $pdo->prepare("INSERT INTO `respuestas`(`id_respuesta`, `respuesta`, `id_consultas`) VALUES (NULL, 'no', 10)");
+                        $insert->execute();
+                    }
                
             ?>
-           <form action="" method="POST">
-             <div id= "crearConsultas"></div>
-             <div id="crearRespuesta"></div>
-             <div id="inputRespuesta"></div>
-             <ol id="listaDesordenada"></ol>
-             <div id="enviarPreguntas"></div>
+          
+            </form>
          </div>        
          <footer>
              <p>Created by: Diana, Dani</p>
