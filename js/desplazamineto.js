@@ -8,13 +8,13 @@ var getHeight = function(el) {
             wanted_height = 0;
 
 
-        // if its not hidden we just return normal height
+        // si no está oculto, solo devolvemos la altura normal
         if(el_display !== 'none' && el_max_height !== '0') {
             return el.offsetHeight;
         }
 
-        // the element is hidden so:
-        // making the el block so we can meassure its height but still be hidden
+        // el elemento está oculto así que:
+        // haciendo el bloque para que podamos medir su altura pero estar oculto
         el.style.position   = 'absolute';
         el.style.visibility = 'hidden';
         el.style.display    = 'block';
@@ -29,11 +29,6 @@ var getHeight = function(el) {
         return wanted_height;
     },
 
-
-    /**
-     * toggleSlide mimics the jQuery version of slideDown and slideUp
-     * all in one function comparing the max-heigth to 0
-     */
     toggleSlide = function(el) {
         var el_max_height = 0;
 
@@ -46,7 +41,7 @@ var getHeight = function(el) {
             }
         } else {
             el_max_height                  = getHeight(el) + 'px';
-            el.style['transition']         = 'max-height 0.5s ease-in-out';
+            el.style['transition']         = 'max-height 1.0s ease-in-out';
             el.style.overflowY             = 'hidden';
             el.style.maxHeight             = '0';
             el.setAttribute('data-max-height', el_max_height);
@@ -55,11 +50,15 @@ var getHeight = function(el) {
             // we use setTimeout to modify maxHeight later than display (to we have the transition effect)
             setTimeout(function() {
                 el.style.maxHeight = el_max_height;
-            }, 10);
+            }, 300);
         }
     };
-
-    function mostrarPregunta(elemento){
-        var elementoSeleccionado = document.querySelector(.elemento);
-        setInterval(setTimeout(toggleSlide(elementoSeleccionado),1000));
-    }
+var body = document.getElementsByTagName("body")[0];
+var pos = 0;
+var respuestas = document.getElementsByClassName("respuestas");
+    body.addEventListener("load", function (e) {
+        while(pos<respuestas.length){
+            toggleSlide(respuestas[pos]);
+            pos++;
+        };
+    }, true);

@@ -30,7 +30,9 @@
             <h3>Invitaciones</h3>
             <form method="POST" action="form_invitacions.php">
                 <label>Introduce un nuevo email:</label>
-                <input type="email" name="email">
+                <input type="email" name="email"><br>
+                <label>Introduce un nuevo email:</label>
+                <input type="number" name="id"><br>
                 <input type="submit" value="envia">
             </form>
             <table>

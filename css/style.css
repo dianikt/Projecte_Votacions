@@ -16,10 +16,14 @@ hr {
     margin:10px -40px;
     margin-bottom:30px
 }
-html,body{
-    margin:0 10%;
+html{
+    height: 90%;
+    overflow: hidden;
+}
+body{
+    margin:0 22%;
     background-color: #F8EBEB;
-    height: 94%;
+    height: 90%;
 }
 #profile {
     padding:50px;
@@ -72,6 +76,8 @@ li a:hover:not(.active) {
     background-color: #cccccc;
     height: 90%;
     margin-bottom: 0;
+    position: relative;
+    z-index: 30;
 }
 footer{
     border-radius:0 0 15px 15px;
@@ -109,3 +115,9 @@ th, td {
     padding: 5px;
     text-align: center;
 }
+
+.respuestas{
+    display: none;
+}
+
+/*Keyframes*/

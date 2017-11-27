@@ -6,10 +6,12 @@
 <head>
     <title>Mi perfil</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
-    <script src="js/desplazamineto.js"></script>
+    <script src="js/snow.js"></script>
+    <script src="js/jquery.snow.js"></script>
 </head>
 <body>
     <ul id="encabezado">
+        <li><img src="img/logo.png" style="width: 43px"></li>
         <li><a href="profile.php">Perfil</a></li>
         <li><a class="active" href="consultas.php">Consultas</a></li>
         <?php
@@ -41,6 +43,7 @@
             $comprobar_invitaciones = $pdo->prepare("select count(id_consulta) consulta from invitacions where email='$user_mail'");
             $comprobar_invitaciones->execute();
             $row = $comprobar_invitaciones->fetch();
+
             if($row['consulta']!='0'){
                 echo "<p>Tienes ".$row['consulta']." consultas pendientes!</p>";
                 $invitaciones = $pdo->prepare("select id_consulta, email from invitacions where email='$user_mail'");
@@ -49,7 +52,6 @@
                 $contador = 0;
                 while ($row) {
                     $id_consulta = $row['id_consulta'];
-                    echo "<div id='pregunta".$contador."' style='display: none;' onload='mostrarPregunta(pregunta".$contador.")'>";
                     $contador++;
                     echo "<form action='' method='post'>";
                     $consulta = $pdo->prepare("select id_consulta, pregunta, fecha_inicio, fecha_final from consultes where id_consulta='$id_consulta'");
@@ -59,6 +61,7 @@
                     echo "<label>Fecha final: ".$fila['fecha_final']."</label><br>";
                     echo "<label>Pregunta: ".$fila['pregunta']."</label><input name='id_consulta' value='".$fila['id_consulta']."' style='display: none'><br>";
                     echo "<label>Respuestas:</label><br>";
+                    echo "<div class='respuestas'>";
                     $respuesta = $pdo->prepare("select id_respuesta, respuesta from respuestas where id_consultas='$id_consulta'");
                     $respuesta->execute();
                     $fila_respuesta = $respuesta->fetch();
@@ -66,6 +69,7 @@
                         echo "<input type='radio' name='respuesta' value='".$fila_respuesta['id_respuesta']."'>".$fila_respuesta['respuesta']."<br>";
                         $fila_respuesta = $respuesta->fetch();
                     }
+                    echo "</div>";
                     $fechaInicio = explode('-', $fila['fecha_inicio']);
                     $fechaFinal = explode('-', $fila['fecha_final']);
                     if(($_SESSION['day']<$fechaInicio[2] and $_SESSION['mon']<$fechaInicio[1] and $_SESSION['year']<$fechaInicio[0])and($_SESSION['day']>$fechaFinal[2] and $_SESSION['mon']>$fechaFinal[1] and $_SESSION['year']>$fechaFinal[0])){
@@ -75,7 +79,6 @@
                         echo "<input type='submit' value='Enviar respuesta'/></form><br>";
 
                     }
-                    echo "</div>";
                     $row = $invitaciones->fetch();
                 }
             }
@@ -83,10 +86,18 @@
                 echo "<p>No tienes consultas pendientes!</p>";
             }
 
+
         ?>
     </div>
     <footer>
         <p>Created by: Diana, Dani</p>
     </footer>
 </body>
+<script src="js/desplazamineto.js"></script>
+<script>
+    $(document).ready( function(){
+        $.fn.snow({ minSize: 5, maxSize: 50, newOn: 120, flakeColor: '#BBABAB' });
+
+    });
+</script>
 </html>

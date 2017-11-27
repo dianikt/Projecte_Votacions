@@ -6,9 +6,12 @@
 <head>
     <title>Mi perfil</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="js/snow.js"></script>
+    <script src="js/jquery.snow.js"></script>
 </head>
 <body>
     <ul id="encabezado">
+        <li><img src="img/logo.png" style="width: 43px"></li>
         <li><a class="active" href="profile.php">Perfil</a></li>
         <li><a href="consultas.php">Consultas</a></li>
         <?php
@@ -27,4 +30,10 @@
         <p>Created by: Diana, Dani</p>
     </footer>
 </body>
+<script>
+    $(document).ready( function(){
+        $.fn.snow({ minSize: 5, maxSize: 50, newOn: 120, flakeColor: '#BBABAB' });
+
+    });
+</script>
 </html>
