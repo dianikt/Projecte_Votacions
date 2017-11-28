@@ -1,6 +1,7 @@
 var numconsulta = 0;
 var comprueba = 0;
 var numRespuestas = 0;
+var contador = 0;
  //document.getElementById("demo").innerHTML = "You wrote: " + valor;
 
  // Funcion que añade una pregunta en un tag<li> a una lista <ul>
@@ -13,20 +14,27 @@ var numRespuestas = 0;
     {
         if(buscarElementoLi(nuevo))
         {
-        	
+        	contador++;        	
             var li = document.createElement('li');  // creamos el elemento <li>
             li.setAttribute('id', nuevo);
-            li.setAttribute('name', 'pregunta');
             li.setAttribute('value', nuevo);
-			var textPregunta = document.createTextNode(nuevo);
+
+            var input = document.createElement('input');
+            var textPregunta = document.createTextNode(nuevo);
+
+            input.setAttribute('type', 'text');
+   			input.setAttribute('name', 'respuesta'+contador);  
+   			input.setAttribute('value', nuevo);
+
+			
 			var boton = document.createElement('input');	
 		    boton.setAttribute('type', 'button');  //creamos el boton para eliminar
 			boton.setAttribute('value', 'Eliminar');
 			boton.setAttribute('onclick', 'eliminarRespuesta(this)');
-			li.appendChild(textPregunta);     //añadimos al <li> los elementos creados 
+			li.appendChild(input);     //añadimos al <li> los elementos creados 
 			li.appendChild(boton);  
             document.getElementById("listaDesordenada").appendChild(li); // y luego a la lista el <li>        	
-        	document.getElementById("crear_respuesta").value = ' '; 
+        	document.getElementById("crear_respuesta").value = ' ';
         	numRespuestas++;
         }
     }
@@ -54,7 +62,7 @@ function eliminarRespuesta(elemento)  // recibe el elemento pulsado
     idElemento.parentNode.removeChild(idElemento);
 }
 
-function restarFechas() {
+function restarFechas() { //comprueba que la fecha de inicio no sea mayor que la final 
 	var fech1 = document.getElementById('fecha_inicio').value;
 	var fech2 = document.getElementById('fecha_final').value;
 
@@ -63,7 +71,7 @@ function restarFechas() {
 	}else return true;
 }
 
-//...................................................................
+// crea el input de respuesta
 function crearInputRespuesta(){
 	var padre = document.getElementById("inputRespuesta");
 	var br = document.createElement("br");
@@ -74,17 +82,16 @@ function crearInputRespuesta(){
 
 } 
 
-//.................................................
 
-
+//pone el borde en rojo cuando detecta que esta vacio
 function pintarRojo(elemento){
 	elemento.style.boxShadow='1px 1px 10px 1px #FA0909';
 }
-function borrarRojo(elemento){
+function borrarRojo(elemento){ // quita el border rojo
 	elemento.style.boxShadow='';
 }
 
-function editar(elemento){
+function editar(elemento){ 
 	//alert("entro");
     var elementoConsulta = document.getElementById(elemento);
     elementoConsulta.disabled = false;
@@ -112,7 +119,7 @@ function crearConsulta(){             // crea la consulta cuando le das al boton
 	var insertarTexto = document.createTextNode("Crear consulta: ");
     label.appendChild(insertarTexto);
     padre.parentNode.insertBefore(label, padre.nextSibling);
-    validarCampoVacio("consulta");
+    
 }
 
 
@@ -141,7 +148,7 @@ function crearFechaFinal(){         // crea los input de las fechas cuando le da
 
 }
 
-function crearFechaInicio(){
+function crearFechaInicio(){  // crea los input de las fechas cuando le das al boton !! 
 	var padre = document.getElementById("crearConsultas");
 	var br = document.createElement("br");
     var inputInicio = document.createElement("input");
@@ -164,7 +171,7 @@ function crearFechaInicio(){
 }
 
 
-function validarCampoVacio(elemento){
+function validarCampoVacio(elemento){ // comprueba los campos vacios
 	var consulta = document.getElementById(elemento).value;
 	var elementoConsulta = document.getElementById(elemento);
 
@@ -177,7 +184,7 @@ function validarCampoVacio(elemento){
 		comprueba++;
 	}	
 	
-	if (comprueba==3){
+	if (comprueba==3){ 
 		var fechas = restarFechas();
 		if (!fechas)alert('La fecha inicial no puede ser mayor que la fecha final');		
 		else{
@@ -187,7 +194,7 @@ function validarCampoVacio(elemento){
 }
 
 
-function crearBotonRespuestas(){
+function crearBotonRespuestas(){ // crea el boton para añadir respuestas
 	var padre = document.getElementById("crearRespuesta");
 	var br = document.createElement("br");	
     var boton = document.createElement("input");
@@ -200,7 +207,7 @@ function crearBotonRespuestas(){
 
 }
 
-function crearBotonEnviarDatos(){  // boton para enviar los datos al servidor...................
+function crearBotonEnviarDatos(){  // boton para enviar los datos al servidor
 	var padre = document.getElementById("enviarPreguntas");
 	var br = document.createElement("br");	
     var boton = document.createElement("input");

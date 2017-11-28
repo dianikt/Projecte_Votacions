@@ -38,30 +38,28 @@
             
             <?php include 'conexionBD.php'; ?>      
           
-            <?php
-              
-                if(isset($_POST['consulta_enviar'])){      
-                         
-                    $query = $pdo->prepare("INSERT INTO `consultes`(`id_consulta`, `pregunta`, `fecha_inicio`, `fecha_final`) VALUES (null,'".$_POST["consulta_enviar"]."','".$_POST["fecha_inicio"]."', '".$_POST["fecha_final"]."')");
-                    $query->execute();                  
-                               
-
-                    $query = $pdo->prepare("SELECT `id_consulta` FROM `consultes` WHERE `pregunta` = '".$_POST["consulta_enviar"]."'");
-                    $codigo = $query->execute();        
-                }
-                       
-
-              
-
-                if(isset($_POST['respuesta'])){
-
-                      echo $codigo[`id_consulta`];  
-                        $insert = $pdo->prepare("INSERT INTO `respuestas`(`id_respuesta`, `respuesta`, `id_consultas`) VALUES (NULL, 'no', 10)");
-                        $insert->execute();
-                    }
+            <?php              
+                if(isset($_POST['consulta_enviar'])){   
+                    $query = $pdo->prepare("INSERT INTO consultes (id_consulta, pregunta, fecha_inicio, fecha_final) VALUES (null,'".$_POST["consulta_enviar"]."','".$_POST["fecha_inicio"]."', '".$_POST["fecha_final"]."')");
+                    $query->execute();                        
                
-            ?>
-          
+                    $query = $pdo->prepare("SELECT id_consulta FROM consultes WHERE pregunta = '".$_POST['consulta_enviar']."'");
+                    $query->execute();  
+                    $codigo = $query->fetch();   
+                    unset($_POST['consulta_enviar']);
+                    
+                } 
+                
+                $i=1;
+                while($i > 0){
+                    if(isset($_POST['respuesta'.$i])){                      
+                           $insert = $pdo->prepare("INSERT INTO respuestas(id_respuesta, respuesta, id_consultas) VALUES (NULL,   '".$_POST['respuesta'.$i]."', '".$codigo["id_consulta"]."')");                           
+                            $insert->execute();
+                            unset($_POST['respuesta'.$i]);
+                            $i++;
+                    }else break;
+                }         
+            ?>          
             </form>
          </div>        
          <footer>
