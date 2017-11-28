@@ -6,6 +6,7 @@
  <meta charset="utf-8">
 	  <title>Envia invitaciones</title>
 	  <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="js/java.js"></script>
    </head> 
     <body>
         <?php
@@ -57,6 +58,12 @@
             </table>
 
         </div>
+           <aside id="aside_letf">              
+                <img class="imagen" id="imagen" src = ""  /></a>
+                <img class="imagen" id="imagen1" src = "" /></a>        
+                <img class="imagen" id="imagen2" src = "" /></a>               
+            </div>
+         </aside>
         <footer>
           <p>Created by: Diana, Dani</p>
         </footer>

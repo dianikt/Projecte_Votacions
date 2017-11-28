@@ -10,6 +10,7 @@
     <title>Creación de preguntas</title>
      <link href="css/style.css" rel="stylesheet" type="text/css"/>
      <script src="js/javascript.js"></script>
+     <script src="js/java.js"></script>
  </head> 
 	 <body>
          <ul id="encabezado">
@@ -61,7 +62,13 @@
                 }         
             ?>          
             </form>
-         </div>        
+         </div>
+         <aside id="aside_letf">              
+                <img class="imagen" id="imagen" src = ""  /></a>
+                <img class="imagen" id="imagen1" src = "" /></a>        
+                <img class="imagen" id="imagen2" src = "" /></a>               
+            </div>
+         </aside>        
          <footer>
              <p>Created by: Diana, Dani</p>
          </footer>
