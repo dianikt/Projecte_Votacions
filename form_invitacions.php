@@ -11,11 +11,12 @@
         <?php
         //preparem i executem la consulta
         if(isset($_POST["email"])){
-            $query = $pdo->prepare("INSERT INTO invitacions (email) VALUES ('".$_POST["email"]."')");
+            $query = $pdo->prepare("INSERT INTO invitacions (id_invitacio, email, id_consulta) VALUES (null, '".$_POST["email"]."','".$_POST["id"]."')");
             $query->execute();
         }
         ?>
         <ul id="encabezado">
+             <li><img src="img/logo.png" style="width: 43px"></li>
              <li><a href="profile.php">Perfil</a></li>
              <li><a href="consultas.php">Consultas</a></li>
              <?php
@@ -31,7 +32,7 @@
             <form method="POST" action="form_invitacions.php">
                 <label>Introduce un nuevo email:</label>
                 <input type="email" name="email"><br>
-                <label>Introduce un nuevo email:</label>
+                <label>Introduce un id existente:</label>
                 <input type="number" name="id"><br>
                 <input type="submit" value="envia">
             </form>
