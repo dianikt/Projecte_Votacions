@@ -37,8 +37,6 @@
                  <ol id="listaDesordenada"></ol>
                  <div id="enviarPreguntas"></div>
             
-            <?php include 'conexionBD.php'; ?>      
-          
             <?php              
                 if(isset($_POST['consulta_enviar'])){   
                     $query = $pdo->prepare("INSERT INTO consultes (id_consulta, pregunta, fecha_inicio, fecha_final) VALUES (null,'".$_POST["consulta_enviar"]."','".$_POST["fecha_inicio"]."', '".$_POST["fecha_final"]."')");

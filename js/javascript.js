@@ -66,9 +66,12 @@ function restarFechas() { //comprueba que la fecha de inicio no sea mayor que la
 	var fech1 = document.getElementById('fecha_inicio').value;
 	var fech2 = document.getElementById('fecha_final').value;
 
+    if((Date.parse(fech1)) == (Date.parse(fech2))){
+        return 1;
+    }
 	if((Date.parse(fech1)) > (Date.parse(fech2))){
-		return false;
-	}else return true;
+		return 2;
+	}else return 0;
 }
 
 // crea el input de respuesta
@@ -184,9 +187,10 @@ function validarCampoVacio(elemento){ // comprueba los campos vacios
 		comprueba++;
 	}	
 	
-	if (comprueba==3){ 
+	if (comprueba>=3){ 
 		var fechas = restarFechas();
-		if (!fechas)alert('La fecha inicial no puede ser mayor que la fecha final');		
+		if (fechas==2)alert('La fecha inicial no puede ser mayor que la fecha final');
+        else if (fechas==1)alert('La fecha inicial no puede ser igual que la fecha final'); 		
 		else{
 			crearBotonRespuestas();	
 			}	
