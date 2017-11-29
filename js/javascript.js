@@ -34,7 +34,11 @@ var contador = 0;
 			li.appendChild(input);     //añadimos al <li> los elementos creados 
 			li.appendChild(boton);  
             document.getElementById("listaDesordenada").appendChild(li); // y luego a la lista el <li>        	
-        	document.getElementById("crear_respuesta").value = ' ';
+        	
+            var audio = carga_sonido(1); // cargamos el sonido de giro 
+            audio.play();
+
+            document.getElementById("crear_respuesta").value = ' ';
         	numRespuestas++;
         }
     }
@@ -235,3 +239,10 @@ function Votaciones()
 	
 }
 
+function carga_sonido(audio){ //crea y devuelve los sonidos
+    var audio;
+    if ( audio == 1) var audio = new Audio('sonidos/GIRAR.WAV');
+    else if ( audio == 2) var audio = new Audio('sonidos/FALLAR.WAV');
+    else if ( audio == 3) var audio = new Audio('sonidos/VICTORY.WAV');    
+    return audio;
+}

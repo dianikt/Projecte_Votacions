@@ -25,7 +25,6 @@ function validar(){
 }
 
 
-
 window.onload = function () {
     var images = [
 		"imagenes/losmasvendidos.jpg",
