@@ -188,6 +188,7 @@ function validarCampoVacio(elemento){ // comprueba los campos vacios
         //elementoConsulta.setAttribute('disabled', 'true');
         elementoConsulta.setAttribute('value',consulta);
 		borrarRojo(elementoConsulta);
+		correcto("Correcto!");
 		comprueba++;
 	}	
 	
@@ -231,11 +232,13 @@ function Votaciones()
 	if (numconsulta == 0){		
 		crearFechaFinal();
 		crearFechaInicio();
-		crearConsulta();		
+		crearConsulta();
+
 		numconsulta++;		
 	}
-	else 
-		alert('Debes terminar la consulta actual para poder crear otra!!');	
+	else if(numconsulta>0){
+        error('Debes terminar la consulta actual para poder crear otra!!');
+    }
 	
 }
 
@@ -245,4 +248,49 @@ function carga_sonido(audio){ //crea y devuelve los sonidos
     else if ( audio == 2) var audio = new Audio('sonidos/FALLAR.WAV');
     else if ( audio == 3) var audio = new Audio('sonidos/VICTORY.WAV');    
     return audio;
+}
+
+function desvanecer(id) {
+    closeBtn(id,2000);
+}
+
+function closeBtn(id,time) {
+    var padre = document.getElementById(id);
+    setTimeout(function(){padre.style = "opacity: 0;";},time/1.5);
+    setTimeout(function () {
+        while (padre.firstChild) {
+            padre.removeChild(padre.firstChild);
+        }
+        padre.removeAttribute('class');
+        padre.removeAttribute('style');
+    },time);
+}
+
+function error(mensaje){
+    var padre = document.getElementById("error");
+    var span = document.createElement("span");
+    var strong = document.createElement("strong");
+    padre.innerHTML = ''+mensaje;
+    padre.setAttribute('class', 'alert');
+    span.setAttribute('class', 'closebtn');
+    span.setAttribute('onclick', 'closeBtn("error",500)');
+    span.innerHTML ='&times;';
+    strong.innerHTML = "Error!";
+    padre.insertBefore(strong, padre.childNodes[0]);
+    padre.insertBefore(span, padre.childNodes[0]);
+    desvanecer("error");
+}
+
+function correcto(mensaje){
+    var padre = document.getElementById("correcto");
+    var span = document.createElement("span");
+    var strong = document.createElement("strong");
+    padre.setAttribute('class', 'alert success');
+    span.setAttribute('class', 'closebtn');
+    span.setAttribute('onclick', 'closeBtn("correcto",500)');
+    span.innerHTML ='&times;';
+    strong.innerHTML = mensaje;
+    padre.insertBefore(strong, padre.childNodes[0]);
+    padre.insertBefore(span, padre.childNodes[0]);
+    desvanecer("correcto");
 }

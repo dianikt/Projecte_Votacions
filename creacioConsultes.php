@@ -65,6 +65,9 @@
             ?>          
             </form>
          </div>
+
+         <div id="error" class=""></div>
+         <div id="correcto" class=""></div>
          <aside id="aside_letf">              
                 <img class="imagen" id="imagen" src = ""  /></a>
                 <img class="imagen" id="imagen1" src = "" /></a>        

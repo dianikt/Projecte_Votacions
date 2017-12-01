@@ -21,7 +21,7 @@ var getHeight = function(el) {
 
         wanted_height     = el.offsetHeight;
 
-        // reverting to the original values
+        // devolviendo los valores originales
         el.style.display    = el_display;
         el.style.position   = el_position;
         el.style.visibility = el_visibility;
@@ -33,7 +33,6 @@ var getHeight = function(el) {
         var el_max_height = 0;
 
         if(el.getAttribute('data-max-height')) {
-            // we've already used this before, so everything is setup
             if(el.style.maxHeight.replace('px', '').replace('%', '') === '0') {
                 el.style.maxHeight = el.getAttribute('data-max-height');
             } else {
@@ -47,8 +46,8 @@ var getHeight = function(el) {
             el.setAttribute('data-max-height', el_max_height);
             el.style.display               = 'block';
 
-            // we use setTimeout to modify maxHeight later than display (to we have the transition effect)
-            setTimeout(function() {
+        // usamos setTimeout para modificar maxHeight más tarde que mostrar (para que tengamos el efecto de transición)
+        setTimeout(function() {
                 el.style.maxHeight = el_max_height;
             }, 300);
         }

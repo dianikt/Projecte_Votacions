@@ -14,6 +14,9 @@
         if(isset($_POST["email"])){
             $query = $pdo->prepare("INSERT INTO invitacions (id_invitacio, email, id_consulta) VALUES (null, '".$_POST["email"]."','".$_POST["id"]."')");
             $query->execute();
+            $mensaje = "Prueeba";
+            mail('gracia.danii@gmail.com', 'Invitació per Votar', $mensaje);
+
         }
         ?>
         <ul id="encabezado">

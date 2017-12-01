@@ -25,7 +25,6 @@ if (isset($_POST['submit'])) {
         } else {
             $error = "Username or Password is invalidddd".$user;
         }
-        $pdo=null;
     }
 }
 ?>

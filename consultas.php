@@ -93,7 +93,7 @@
 
         ?>
     </div>
-    <aside id="aside_letf">              
+    <aside id="aside_letf">
                 <img class="imagen" id="imagen" src = ""  /></a>
                 <img class="imagen" id="imagen1" src = "" /></a>        
                 <img class="imagen" id="imagen2" src = "" /></a>               
