@@ -15,8 +15,13 @@
             echo $_POST["id"];
             $query = $pdo->prepare("INSERT INTO invitacions (id_invitacio, email, id_consulta) VALUES (null, '".$_POST["email"]."','".$_POST["id"]."')");
             $query->execute();
-            $mensaje = "Ha sido invitado a una consulta";
-            mail($_POST["email"], 'Invitació per Votar', $mensaje);
+          
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            $headers .= "From: Vota@proyectevota.org"  . "\r\n";
+            $mensaje = "Ha sido invitado a una consulta.";
+            mail($_POST["email"], 'Invitació per Votar', $mensaje, $headers);
+            
          }
         ?>
         <ul id="encabezado">
