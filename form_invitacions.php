@@ -12,12 +12,12 @@
         <?php
         //preparem i executem la consulta
         if(isset($_POST["email"])){
+            echo $_POST["id"];
             $query = $pdo->prepare("INSERT INTO invitacions (id_invitacio, email, id_consulta) VALUES (null, '".$_POST["email"]."','".$_POST["id"]."')");
             $query->execute();
-            $mensaje = "Prueeba";
-            mail('gracia.danii@gmail.com', 'Invitació per Votar', $mensaje);
-
-        }
+            $mensaje = "Ha sido invitado a una consulta";
+            mail($_POST["email"], 'Invitació per Votar', $mensaje);
+         }
         ?>
         <ul id="encabezado">
              <li><img src="img/logo.png" style="width: 43px"></li>
@@ -36,31 +36,32 @@
         </ul>
         <div class="contenido">
             <h3>Invitaciones</h3>
+
             <form method="POST" action="form_invitacions.php">
                 <label>Introduce un nuevo email:</label>
                 <input type="email" name="email"><br>
                 <label>Introduce un id existente:</label>
-                <input type="number" name="id"><br>
+                <select name="id">Elige una consulta 
+                <option type="text">Selecciona una consulta</option> 
+                      <?php
+                            echo $_POST["id"];
+                            $preguntas = $pdo->prepare("select id_consulta, pregunta from consultes");
+                            $preguntas->execute();
+                            $fila = $preguntas->fetch();             
+                            
+                            while($fila){ ?>                              
+                              <option style="120px;" type="text" value="<?php echo $fila['id_consulta'];?>">  <?php echo $fila['pregunta'];?></option>             
+                               
+                      <?php
+                            $fila = $preguntas->fetch();
+                            }
+                        ?>
+                  </option>
+                  </select><br>
                 <input type="submit" value="envia">
             </form>
             <table>
-                <?php
-                    echo "<tr>";
-                    echo "<th>PREGUNTA</th>";
-                    echo "<th>ID</th>";
-                    echo "</tr>";
-                    $preguntas = $pdo->prepare("select id_consulta, pregunta from consultes");
-                    $preguntas->execute();
-                    $fila = $preguntas->fetch();
-                    while($fila){
-                        echo "<tr>";
-                        echo "<td>".$fila['pregunta']."</td>";
-                        echo "<td>".$fila['id_consulta']."</td>";
-                        echo "</tr>";
-                        $fila = $preguntas->fetch();
-                    }
-
-                ?>
+                
             </table>
 
         </div>
