@@ -1,5 +1,6 @@
 var numconsulta = 0;
 var comprueba = 0;
+var crearBotones = true;
 var numRespuestas = 0;
 var contador = 0;
 var today = obtenerFechaActual();
@@ -350,8 +351,9 @@ function crearFechaInicio(){  // crea los input de las fechas cuando le das al b
 	
 }
 function validarCampos() {
-    if(comprueba==3){
+    if((comprueba==3 )&& (crearBotones==true)){
         crearBotonRespuestas();
+        crearBotones = false;
     }
 }
 
