@@ -120,9 +120,11 @@ th, td {
     display: none;
 }
 #aside_letf{    /*bolsita y vendidos*/
+    position: fixed;
 	height: 120px;
 	width: 220px;
-	margin: -620px 0 0 800px;
+	margin: -600px 0 0 60%;
+    z-index: 40;
 
 }
 .imagen {
