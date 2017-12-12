@@ -101,18 +101,21 @@ function bajarRespuesta(elemento) {
     var linea=document.getElementById(elemento);
     var cloneLinea = linea.cloneNode(true);
     var padre = document.getElementById("listaDesordenada");
-    if(elemento==(padre.length-1)){
+    if(elemento==(padre.getElementsByTagName("li").length)){
         error("Es el ultimo de la lista, no se puede bajar!");
     }
     else{
-        padre.insertBefore(cloneLinea, padre.childNodes[elemento+1]);
         padre.removeChild(padre.childNodes[elemento-1]);
+        padre.insertBefore(cloneLinea, padre.childNodes[elemento]);
         document.getElementById('subirRespuesta'+elemento).setAttribute('onclick','subirRespuesta('+(elemento+1)+')');
         document.getElementById('bajarRespuesta'+elemento).setAttribute('onclick','bajarRespuesta('+(elemento+1)+')');
+        document.getElementsByName('respuesta'+elemento)[0].setAttribute('name','respuesta'+(elemento+1));
 
 
         document.getElementById('subirRespuesta'+(elemento+1)).setAttribute('onclick','subirRespuesta('+(elemento)+')');
         document.getElementById('bajarRespuesta'+(elemento+1)).setAttribute('onclick','bajarRespuesta('+(elemento)+')');
+        document.getElementsByName('respuesta'+(elemento+1))[0].setAttribute('name','respuesta'+(elemento));
+
 
         document.getElementById('subirRespuesta'+elemento).setAttribute('id','subirRespuesta'+(elemento+1));
         document.getElementById('bajarRespuesta'+elemento).setAttribute('id','bajarRespuesta'+(elemento+1));
@@ -120,8 +123,11 @@ function bajarRespuesta(elemento) {
 
         document.getElementById('subirRespuesta'+(elemento+1)).setAttribute('id','subirRespuesta'+(elemento));
         document.getElementById('bajarRespuesta'+(elemento+1)).setAttribute('id','bajarRespuesta'+(elemento));
-        document.getElementById(''+elemento+1).setAttribute('id',''+elemento);
-        document.getElementById(''+elemento).setAttribute('id',''+elemento+1);
+
+        document.getElementById(elemento).setAttribute('id',(elemento+1));
+        document.getElementById(elemento+1).setAttribute('id',(elemento));
+
+
 
 
     }
@@ -136,23 +142,31 @@ function subirRespuesta(elemento) {
         error("Es el primero de la lista, no se puede subir!");
     }
     else{
-        cloneLinea.getElementById('subirRespuesta'+elemento).setAttribute('onclick','subirRespuesta('+(elemento-1)+')');
-        cloneLinea.getElementById('bajarRespuesta'+elemento).setAttribute('onclick','bajarRespuesta('+(elemento-1)+')');
-        cloneLinea.getElementById('subirRespuesta'+elemento).setAttribute('id','subirRespuesta'+(elemento-1));
-        cloneLinea.getElementById('bajarRespuesta'+elemento).setAttribute('id','bajarRespuesta'+(elemento-1));
-        padre.insertBefore(cloneLinea, padre.childNodes[element-1]);
         padre.removeChild(padre.childNodes[elemento-1]);
-    }
-}
+        padre.insertBefore(cloneLinea, padre.childNodes[elemento-2]);
 
-function cambiar(obj,num1,num2) {
-    proVal = obj.options[num1].value;
-    proTex = obj.options[num1].text;
-    obj.options[num1].value = obj.options[num2].value;
-    obj.options[num1].text = obj.options[num2].text;
-    obj.options[num2].value = proVal;
-    obj.options[num2].text = proTex;
-    obj.selectedIndex = num2;
+        document.getElementById('subirRespuesta'+(elemento-1)).setAttribute('onclick','subirRespuesta('+(elemento)+')');
+        document.getElementById('bajarRespuesta'+(elemento-1)).setAttribute('onclick','bajarRespuesta('+(elemento)+')');
+        document.getElementsByName('respuesta'+(elemento-1))[0].setAttribute('name','respuesta'+(elemento));
+
+        document.getElementById('subirRespuesta'+elemento).setAttribute('onclick','subirRespuesta('+(elemento-1)+')');
+        document.getElementById('bajarRespuesta'+elemento).setAttribute('onclick','bajarRespuesta('+(elemento-1)+')');
+        document.getElementsByName('respuesta'+elemento)[0].setAttribute('name','respuesta'+(elemento-1));
+
+
+
+        document.getElementById('subirRespuesta'+(elemento-1)).setAttribute('id','subirRespuesta'+(elemento));
+        document.getElementById('bajarRespuesta'+(elemento-1)).setAttribute('id','bajarRespuesta'+(elemento));
+
+
+        document.getElementById('subirRespuesta'+elemento).setAttribute('id','subirRespuesta'+(elemento-1));
+        document.getElementById('bajarRespuesta'+elemento).setAttribute('id','bajarRespuesta'+(elemento-1));
+
+
+        document.getElementById(elemento-1).setAttribute('id',(elemento));
+        document.getElementById(elemento).setAttribute('id',(elemento-1));
+
+    }
 }
 
 // Funcion para eliminar los elementos
@@ -224,15 +238,25 @@ function borrarRespuestas(){
 function editar(elemento){
     if(elemento=="consulta"){
         var edit = document.getElementById("icon0");
+        var consulta = document.getElementById("consulta");
+        consulta.disabled = false;
         edit.disabled = false;
+        comprueba--;
     }
     else if(elemento=="fecha_inicio"){
         var edit = document.getElementById("icon1");
+        var fecha_inicio = document.getElementById("fecha_inicio");
+        fecha_inicio.disabled = false;
         edit.disabled = false;
+        comprueba--;
+
     }
     else if(elemento=="fecha_final"){
         var edit = document.getElementById("icon2");
+        var fecha_final = document.getElementById("fecha_final");
+        fecha_final.disabled = false;
         edit.disabled = false;
+        comprueba--;
     }
 }
 
@@ -249,6 +273,7 @@ function crearConsulta(){             // crea la consulta cuando le das al boton
     icon.disabled = true;
     icon.setAttribute('onclick', 'editar("consulta")');
     padre.parentNode.insertBefore(icon, padre.nextSibling);
+    input.required = true;
     input.setAttribute('type', 'text');
     input.setAttribute('name', 'consulta_enviar');
     input.setAttribute('id', 'consulta');     
@@ -285,6 +310,7 @@ function crearFechaFinal(){         // crea los input de las fechas cuando le da
     icon.disabled = true;
     icon.setAttribute('onclick', 'editar("fecha_final")');
     padre.parentNode.insertBefore(icon, padre.nextSibling);
+    inputFinal.required = true;
     inputFinal.setAttribute('type', 'date');
     inputFinal.setAttribute('name', 'fecha_final');
     inputFinal.setAttribute('id', 'fecha_final'); 
@@ -310,6 +336,7 @@ function crearFechaInicio(){  // crea los input de las fechas cuando le das al b
     icon.disabled = true;
     icon.setAttribute('onclick', 'editar("fecha_inicio")');
     padre.parentNode.insertBefore(icon, padre.nextSibling);
+    inputInicio.required = true;
     inputInicio.setAttribute('type', 'date');
     inputInicio.setAttribute('name', 'fecha_inicio');
     inputInicio.setAttribute('id', 'fecha_inicio');     
@@ -405,8 +432,15 @@ function crearBotonEnviarDatos(){  // boton para enviar los datos al servidor
     var boton = document.createElement("input");
     boton.setAttribute('type', 'submit');
     boton.setAttribute('value', 'Enviar pregunta');
+    boton.setAttribute('onclick', 'habilitarDatos()');
 	padre.insertBefore(boton, padre.childNodes[0]);
 	padre.insertBefore(br, padre.childNodes[0]);
+}
+
+function habilitarDatos() {
+    document.getElementById("consulta").disabled = false;
+    document.getElementById("fecha_inicio").disabled = false;
+    document.getElementById("fecha_final").disabled = false;
 }
 
 function Votaciones()

@@ -74,7 +74,7 @@ li a:hover:not(.active) {
 .contenido{
     padding: 50px;
     background-color: #cccccc;
-    height: 90%;
+    height: 88%;
     margin-bottom: 0;
     position: relative;
     z-index: 30;
@@ -83,13 +83,13 @@ footer{
     border-radius:0 0 15px 15px;
     background-color: #333;
     height: 50px;
-    padding-top: 1px;
-
+    margin-top:-16px;
 }
 footer>p{
     color: white;
     width: 100%;
-    padding-left: 35%;
+    padding-top: 13px;
+    padding-left: 40%;
 
 }
 
