@@ -4,6 +4,38 @@ var crearBotones = true;
 var numRespuestas = 0;
 var contador = 0;
 var today = obtenerFechaActual();
+var tomorrow = obtenerFechaMañana();
+var hora = obtenerHoraActual();
+function obtenerHoraActual() {
+    var hoy = new Date();
+    var hh = hoy.getHours();
+    var mm = hoy.getMinutes();
+    if(hh<10) {
+        hh = '0'+hh
+    }
+    if(mm<10){
+        mm = '0'+mm
+    }
+    hoy = hh + ':' + mm;
+    return hoy;
+}
+
+function obtenerFechaMañana(){
+    var tomorrow = new Date();
+    var dd = tomorrow.getDate();
+    var mm = tomorrow.getMonth()+1; //January is 0!
+    var yyyy = tomorrow.getFullYear();
+    if(dd<10) {
+        dd = '0'+dd
+    }
+
+    if(mm<10) {
+        mm = '0'+mm
+    }
+    tomorrow = yyyy + '-' + mm + '-' + (dd=dd+1);
+    return tomorrow;
+}
+
 function obtenerFechaActual(){
     var today = new Date();
     var dd = today.getDate();
@@ -247,7 +279,9 @@ function editar(elemento){
     else if(elemento=="fecha_inicio"){
         var edit = document.getElementById("icon1");
         var fecha_inicio = document.getElementById("fecha_inicio");
+        var hora_inicio = document.getElementById("horaInicio");
         fecha_inicio.disabled = false;
+        hora_inicio.disabled = false;
         edit.disabled = false;
         comprueba--;
 
@@ -255,7 +289,9 @@ function editar(elemento){
     else if(elemento=="fecha_final"){
         var edit = document.getElementById("icon2");
         var fecha_final = document.getElementById("fecha_final");
+        var hora_final = document.getElementById("horaFin");
         fecha_final.disabled = false;
+        hora_final.disabled = false;
         edit.disabled = false;
         comprueba--;
     }
@@ -303,6 +339,8 @@ function crearFechaFinal(){         // crea los input de las fechas cuando le da
 	var padre = document.getElementById("crearConsultas");
 	var br = document.createElement("br");
     var inputFinal = document.createElement("input");
+    var input = document.createElement("input");
+    var label = document.createElement("label");
     var icon = document.createElement("img");
     padre.parentNode.insertBefore(br, padre.nextSibling);
     icon.setAttribute('id', 'icon2');
@@ -311,6 +349,14 @@ function crearFechaFinal(){         // crea los input de las fechas cuando le da
     icon.disabled = true;
     icon.setAttribute('onclick', 'editar("fecha_final")');
     padre.parentNode.insertBefore(icon, padre.nextSibling);
+    input.setAttribute('id','horaFinal');
+    padre.parentNode.insertBefore(input, padre.nextSibling);
+    label.appendChild(document.createTextNode("  Hora final: "));
+    padre.parentNode.insertBefore(label, padre.nextSibling);
+    input.required = true;
+    input.setAttribute('id','horaFin');
+    input.setAttribute('type','time');
+    input.setAttribute('onfocusout', 'validarHoraFin()');
     inputFinal.required = true;
     inputFinal.setAttribute('type', 'date');
     inputFinal.setAttribute('name', 'fecha_final');
@@ -330,6 +376,8 @@ function crearFechaInicio(){  // crea los input de las fechas cuando le das al b
 	var padre = document.getElementById("crearConsultas");
 	var br = document.createElement("br");
     var inputInicio = document.createElement("input");
+    var input = document.createElement("input");
+    var label = document.createElement("label");
     var icon = document.createElement("img");
     icon.setAttribute('id', 'icon1');
     icon.setAttribute('class', 'edit-icon');
@@ -337,6 +385,14 @@ function crearFechaInicio(){  // crea los input de las fechas cuando le das al b
     icon.disabled = true;
     icon.setAttribute('onclick', 'editar("fecha_inicio")');
     padre.parentNode.insertBefore(icon, padre.nextSibling);
+    input.required = true;
+    input.setAttribute('id','horaInicio');
+    input.setAttribute('type','time');
+    input.setAttribute('onfocusout', 'validarHoraIni()');
+    padre.parentNode.insertBefore(input, padre.nextSibling);
+    label.appendChild(document.createTextNode("  Hora inicio: "));
+    padre.parentNode.insertBefore(label, padre.nextSibling);
+
     inputInicio.required = true;
     inputInicio.setAttribute('type', 'date');
     inputInicio.setAttribute('name', 'fecha_inicio');
@@ -348,21 +404,98 @@ function crearFechaInicio(){  // crea los input de las fechas cuando le das al b
 	var insertarTexto = document.createTextNode("Fecha inicio: ");
     labelInicio.appendChild(insertarTexto);
     padre.parentNode.insertBefore(labelInicio, padre.nextSibling); 	
-	
+
 }
 function validarCampos() {
-    if((comprueba==3 )&& (crearBotones==true)){
+    if((comprueba==5 )&& (crearBotones==true)) {
         crearBotonRespuestas();
         crearBotones = false;
+        correcto("Correcto!");
     }
+}
+
+function validarHoraIni(){
+    var horaIni = document.getElementById("horaInicio").value;
+    var horaIniInput = document.getElementById("horaInicio");
+    var fechaIni = document.getElementById("fecha_inicio").value;
+    if(fechaIni == today){
+        if(horaIni<hora){
+            error('La hora inicial tiene que ser superior a la actual!');
+        }
+        else{
+            correcto("Correcto!");
+            comprueba++;
+            horaIniInput.disabled = true;
+        }
+    }
+    else{
+        correcto("Correcto!");
+        comprueba++;
+        horaIniInput.disabled = true;
+    }
+    validarCampos();
+}
+
+function validarHoraFin(){
+    var horaIni = document.getElementById("horaInicio").value;
+    var horaFin = document.getElementById("horaFin").value;
+    var horaFinInput = document.getElementById("horaFin");
+    var hIni = horaIni.split(':');
+    var hFin = horaFin.split(':');
+    var resH = hFin[0]-hIni[0];
+    var fechaIni = document.getElementById("fecha_inicio").value;
+    var fechaFin = document.getElementById("fecha_final").value;
+    if(fechaIni==fechaFin){
+        if(resH=='4' && hIni[1]>hFin[1]){
+            error('La consulta debe durar minimo 4 horas!');
+        }
+        else if(resH<4) {
+            error('La consulta debe durar minimo 4 horas!');
+        }
+        else{
+            correcto("Correcto!");
+            comprueba++;
+            horaFinInput.disabled = true;
+        }
+    }
+    else if(fechaFin==tomorrow){
+        if(hIni[0]>=21 && hFin[0]<=4){
+            var hFin2 = parseInt(hIni[0])+parseInt(hFin[0]);
+            var hRes =  hFin2-parseInt(hIni[0]);
+            if(hRes=='3' && hIni[1]>hFin[1]){
+                error('La consulta debe durar minimo 4 horas!');
+            }
+            else if(hRes<3){
+                error('La consulta debe durar minimo 4 horas!');
+            }
+            else{
+                correcto("Correcto!");
+                comprueba++;
+                horaFinInput.disabled = true;
+            }
+        }
+        else{
+            correcto("Correcto!");
+            comprueba++;
+            horaFinInput.disabled = true;
+        }
+
+    }
+    else{
+        correcto("Correcto!");
+        comprueba++;
+        horaFinInput.disabled = true;
+    }
+    validarCampos();
+
 }
 
 function validarFechaIni(){
     var fechaIni = document.getElementById("fecha_inicio").value;
     var elementoConsulta = document.getElementById("fecha_inicio");
     var edit = document.getElementById("icon1");//Icono de habilitar editar campo
-    if(today >= fechaIni){
-        error('La fecha inicial no puede ser inferior o igual a la fecha actual!');
+    if(today > fechaIni){
+        error('La fecha inicial no puede ser inferior a la fecha actual!');
         pintarRojo(elementoConsulta);
     }
     else{
@@ -379,7 +512,7 @@ function validarFechaFin(){
     var fechaIni = document.getElementById("fecha_inicio").value;
     var edit = document.getElementById("icon2");
     var elementoConsulta = document.getElementById("fecha_final");
-    if(fechaFin <= fechaIni){
+    if(fechaFin < fechaIni){
         error('La fecha final tiene que ser mayor a la fecha inicial!');
         pintarRojo(elementoConsulta);
     }
