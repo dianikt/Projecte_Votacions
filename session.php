@@ -9,13 +9,15 @@
     // Storing Session
     $user_check=$_SESSION['login_user'];
     // SQL Query To Fetch Complete Information Of User
-    $query = $pdo->prepare("select usuari from usuaris where usuari='$user_check'");
+    $query = $pdo->prepare("select id_usuari, usuari, email from usuaris where usuari='$user_check'");
     $query->execute();
-
     $row = $query->fetch();
     $login_session =$row['usuari'];
+    $id_session =$row['id_usuari'];
+    $email_session =$row['email'];
+
     if(!isset($login_session)){
-        $pdo=null; // Closing Connection
+        $pdo=null; // Closing Connection      
         header('Location: index.php'); // Redirecting To Home Page
     }
 ?>

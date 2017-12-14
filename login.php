@@ -12,16 +12,21 @@ if (isset($_POST['submit'])) {
 // Define $username and $password
         $username=$_POST['username'];
         $password=$_POST['password'];
-// SQL query to fetch information of registerd users and finds user match.
-        $query = $pdo->prepare( "select usuari, password from usuaris where password='$password' AND usuari='$username'");
+        $passw = SHA1($password);
+    // SQL query to fetch information of registerd users and finds user match.
+        $query = $pdo->prepare( "select usuari, password from usuaris where password ='$passw' AND usuari='$username'");
         $query->execute();
         $row = $query->fetch();
         $user = $row['usuari'];
-        $pass = $row['password'];
-        if ($user == $username && $pass == $password) {
+        $pass = $row['password'];       
+        
+        if ($user == $username && $pass == $passw) {
             $_SESSION['login_user']=$username; // Initializing Session
-
-            header("location: profile.php"); // Redirecting To Other Page
+            if($user == 'admin'){
+              header('location: creacioConsultes.php'); 
+          }else{
+             header("location: profile.php"); 
+             }// Redirecting To Other Page
         } else {
             $error = "Username or Password is invalidddd".$user;
         }

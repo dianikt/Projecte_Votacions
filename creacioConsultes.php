@@ -15,7 +15,11 @@
 	 <body>
          <ul id="encabezado">
              <li><img src="img/logo.png" style="width: 43px"></li>
-             <li><a href="profile.php">Perfil</a></li>
+              <?php
+              if($login_session!="admin"){
+                  echo "<li><a href='profile.php'>Perfil</a></li>";
+              }
+              ?> 
              <?php
             if($login_session!="admin"){
                 echo "<li><a href='consultas.php'>Consultas</a></li>";

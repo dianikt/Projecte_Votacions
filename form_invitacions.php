@@ -13,7 +13,7 @@
         //preparem i executem la consulta
         if(isset($_POST["email"])){
             echo $_POST["id"];
-            $query = $pdo->prepare("INSERT INTO invitacions (id_invitacio, email, id_consulta) VALUES (null, '".$_POST["email"]."','".$_POST["id"]."')");
+            $query = $pdo->prepare("INSERT INTO invitacions (id_invitacio, email, id_consulta, haVotado) VALUES (null, '".$_POST["email"]."','".$_POST["id"]."', 0)");
             $query->execute();
           
             $headers = "MIME-Version: 1.0" . "\r\n";
@@ -26,7 +26,12 @@
         ?>
         <ul id="encabezado">
              <li><img src="img/logo.png" style="width: 43px"></li>
-             <li><a href="profile.php">Perfil</a></li>
+              <?php
+              if($login_session!="admin"){
+                  echo "<li><a href='profile.php'>Perfil</a></li>";
+              }
+              ?> 
+             
         <?php
             if($login_session!="admin"){
                 echo "<li><a href='consultas.php'>Consultas</a></li>";
@@ -70,6 +75,12 @@
             </table>
 
         </div>
+           <aside id="aside_letf">              
+                <img class="imagen" id="imagen" src = ""  /></a>
+                <img class="imagen" id="imagen1" src = "" /></a>        
+                <img class="imagen" id="imagen2" src = "" /></a>               
+            </div>
+         </aside>
         <footer>
           <p>Created by: Diana, Dani</p>
         </footer>
