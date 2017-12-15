@@ -23,9 +23,9 @@ if (isset($_POST['submit'])) {
         if ($user == $username && $pass == $passw) {
             $_SESSION['login_user']=$username; // Initializing Session
             if($user == 'admin'){
-              header('location: creacioConsultes.php'); 
+              header('location: creacioConsultes.php');
           }else{
-             header("location: profile.php"); 
+             header("location: profile.php");
              }// Redirecting To Other Page
         } else {
             $error = "Username or Password is invalidddd".$user;

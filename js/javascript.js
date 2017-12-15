@@ -4,7 +4,6 @@ var crearBotones = true;
 var numRespuestas = 0;
 var contador = 0;
 var today = obtenerFechaActual();
-var tomorrow = obtenerFechaMañana();
 var hora = obtenerHoraActual();
 function obtenerHoraActual() {
     var hoy = new Date();
@@ -18,22 +17,6 @@ function obtenerHoraActual() {
     }
     hoy = hh + ':' + mm;
     return hoy;
-}
-
-function obtenerFechaMañana(){
-    var tomorrow = new Date();
-    var dd = tomorrow.getDate();
-    var mm = tomorrow.getMonth()+1; //January is 0!
-    var yyyy = tomorrow.getFullYear();
-    if(dd<10) {
-        dd = '0'+dd
-    }
-
-    if(mm<10) {
-        mm = '0'+mm
-    }
-    tomorrow = yyyy + '-' + mm + '-' + (dd=dd+1);
-    return tomorrow;
 }
 
 function obtenerFechaActual(){
@@ -57,7 +40,7 @@ function obtenerFechaActual(){
  // Funcion que añade una pregunta en un tag<li> a una lista <ul>
  function nuevaRespuesta()
 {
-	
+
 	var nuevo = document.getElementById("crear_respuesta").value;
     if(nuevo.length>0) // si esta vacio no creara otro input
     {
@@ -206,8 +189,20 @@ function subirRespuesta(elemento) {
 function eliminarRespuesta(elemento)  // recibe el elemento pulsado
 {
     var id = elemento.parentNode.getAttribute("id");
-    idElemento = document.getElementById(id);
+    var idElemento = document.getElementById(id);
     idElemento.parentNode.removeChild(idElemento);
+    var listaRes = document.getElementById("listaDesordenada").childNodes;
+    var y=1;
+    for(var x=0;x<=listaRes.length;x++){
+        listaRes[x].setAttribute('id',''+y);
+        listaRes[x].childNodes[0].setAttribute('name','respuesta'+(y));
+        listaRes[x].childNodes[2].setAttribute('onclick','subirRespuesta('+(y)+')');
+        listaRes[x].childNodes[2].setAttribute('id','subirRespuesta'+(y));
+        listaRes[x].childNodes[3].setAttribute('onclick','bajarRespuesta('+(y)+')');
+        listaRes[x].childNodes[3].setAttribute('id','bajarRespuesta'+(y));
+        y++;
+    }
+    y=1;
     numRespuestas--;
     if(numRespuestas<2){
         borrarEnviarDatos();
@@ -255,7 +250,7 @@ function borrarEnviarDatos(){
 }
 function borrarRespuestas(){
     var listaRes = document.getElementById("listaDesordenada");
-    if(listaRes.length==0){
+    if(listaRes.firstChild==null){
        error("No puedes hacer eso, no hay respuestas a eliminar!");
     }
     else {
@@ -264,6 +259,7 @@ function borrarRespuestas(){
         }
         borrarEnviarDatos();
         numRespuestas = 0;
+        contador = 0;
         correcto("Respuestas eliminadas correctamente!")
     }
 }
@@ -280,20 +276,22 @@ function editar(elemento){
         var edit = document.getElementById("icon1");
         var fecha_inicio = document.getElementById("fecha_inicio");
         var hora_inicio = document.getElementById("horaInicio");
-        fecha_inicio.disabled = false;
-        hora_inicio.disabled = false;
-        edit.disabled = false;
+        if(fecha_inicio.disabled){
+            fecha_inicio.disabled = false;
+            comprueba--;
+        }
         comprueba--;
-
     }
     else if(elemento=="fecha_final"){
         var edit = document.getElementById("icon2");
         var fecha_final = document.getElementById("fecha_final");
         var hora_final = document.getElementById("horaFin");
-        fecha_final.disabled = false;
-        hora_final.disabled = false;
-        edit.disabled = false;
+        if(fecha_final.disabled){
+            fecha_final.disabled = false;
+            comprueba--;
+        }
         comprueba--;
+
     }
 }
 
@@ -357,6 +355,7 @@ function crearFechaFinal(){         // crea los input de las fechas cuando le da
     input.setAttribute('id','horaFin');
     input.setAttribute('type','time');
     input.setAttribute('onfocusout', 'validarHoraFin()');
+    input.disabled = true;
     inputFinal.required = true;
     inputFinal.setAttribute('type', 'date');
     inputFinal.setAttribute('name', 'fecha_final');
@@ -389,6 +388,7 @@ function crearFechaInicio(){  // crea los input de las fechas cuando le das al b
     input.setAttribute('id','horaInicio');
     input.setAttribute('type','time');
     input.setAttribute('onfocusout', 'validarHoraIni()');
+    input.disabled = true;
     padre.parentNode.insertBefore(input, padre.nextSibling);
     label.appendChild(document.createTextNode("  Hora inicio: "));
     padre.parentNode.insertBefore(label, padre.nextSibling);
@@ -445,6 +445,8 @@ function validarHoraFin(){
     var resH = hFin[0]-hIni[0];
     var fechaIni = document.getElementById("fecha_inicio").value;
     var fechaFin = document.getElementById("fecha_final").value;
+    var fechaIniSiguienteDia = fechaIni.split('-');
+    fechaIniSiguienteDia = fechaIniSiguienteDia[0]+"-"+fechaIniSiguienteDia[1]+"-"+(parseInt(fechaIniSiguienteDia[2])+1);
     if(fechaIni==fechaFin){
         if(resH=='4' && hIni[1]>hFin[1]){
             error('La consulta debe durar minimo 4 horas!');
@@ -458,7 +460,7 @@ function validarHoraFin(){
             horaFinInput.disabled = true;
         }
     }
-    else if(fechaFin==tomorrow){
+    else if(fechaFin==fechaIniSiguienteDia){
         if(hIni[0]>=21 && hFin[0]<=4){
             var hFin2 = parseInt(hIni[0])+parseInt(hFin[0]);
             var hRes =  hFin2-parseInt(hIni[0]);
@@ -493,6 +495,7 @@ function validarHoraFin(){
 function validarFechaIni(){
     var fechaIni = document.getElementById("fecha_inicio").value;
     var elementoConsulta = document.getElementById("fecha_inicio");
+    var horaIni = document.getElementById("horaInicio");
     var edit = document.getElementById("icon1");//Icono de habilitar editar campo
     if(today > fechaIni){
         error('La fecha inicial no puede ser inferior a la fecha actual!');
@@ -500,6 +503,7 @@ function validarFechaIni(){
     }
     else{
         borrarRojo(elementoConsulta);
+        horaIni.disabled = false;
         elementoConsulta.disabled = true;
         edit.disabled = false;
         correcto("Correcto!");
@@ -510,6 +514,7 @@ function validarFechaIni(){
 function validarFechaFin(){
     var fechaFin = document.getElementById("fecha_final").value;
     var fechaIni = document.getElementById("fecha_inicio").value;
+    var horaFin = document.getElementById("horaFin");
     var edit = document.getElementById("icon2");
     var elementoConsulta = document.getElementById("fecha_final");
     if(fechaFin < fechaIni){
@@ -518,6 +523,7 @@ function validarFechaFin(){
     }
     else{
         borrarRojo(elementoConsulta);
+        horaFin.disabled = false;
         elementoConsulta.disabled = true;
         edit.disabled = false;
         correcto("Correcto!");
@@ -565,17 +571,36 @@ function crearBotonEnviarDatos(){  // boton para enviar los datos al servidor
 	var padre = document.getElementById("enviarPreguntas");
 	var br = document.createElement("br");	
     var boton = document.createElement("input");
-    boton.setAttribute('type', 'submit');
-    boton.setAttribute('value', 'Enviar pregunta');
+    var botonEnviar = document.createElement("input");
+    boton.setAttribute('type', 'button');
+    boton.setAttribute('value', 'Enviar consulta');
     boton.setAttribute('onclick', 'habilitarDatos()');
-	padre.insertBefore(boton, padre.childNodes[0]);
+    botonEnviar.setAttribute('type', 'submit');
+    botonEnviar.setAttribute('style', 'display: none;');
+    botonEnviar.setAttribute('id', 'enviarDatos');
+    padre.insertBefore(boton, padre.childNodes[0]);
+    padre.insertBefore(botonEnviar, padre.childNodes[0]);
 	padre.insertBefore(br, padre.childNodes[0]);
 }
 
 function habilitarDatos() {
-    document.getElementById("consulta").disabled = false;
-    document.getElementById("fecha_inicio").disabled = false;
-    document.getElementById("fecha_final").disabled = false;
+    var consulta = document.getElementById("consulta");
+    var fechaInicio = document.getElementById("fecha_inicio");
+    var fechaFin = document.getElementById("fecha_final");
+    var horaInicio = document.getElementById("horaInicio");
+    var horaFin = document.getElementById("horaFin");
+    var botonEnviar = document.getElementById('enviarDatos');
+    if(consulta.disabled && fechaInicio.disabled && fechaFin.disabled && horaInicio.disabled && horaFin.disabled){
+        consulta.disabled=false;
+        fechaInicio.disabled=false;
+        fechaFin.disabled=false;
+        horaInicio.disabled=false;
+        horaFin.disabled=false;
+        botonEnviar.click();
+    }
+    else {
+        error('Debes rellenar todos los campos de fechas, horas y texto de consulta!');
+    }
 }
 
 function Votaciones()

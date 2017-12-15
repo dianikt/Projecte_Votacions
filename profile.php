@@ -50,7 +50,7 @@
         <label>Usuario:</label>
         <input name="username" type="text" value="<?php echo $user; ?>"><br><br>
         <label>Email:</label>
-        <input id="email" name="email" type="email" value="<?php echo $email; ?>"><br><br>       
+        <input id="email" name="email" type="email" value="<?php echo $email; ?>"><br><br>
     </div>
     <footer>
         <p>Created by: Diana, Dani</p>

@@ -36,22 +36,23 @@
             $user_mail =$row['email'];
             $_SESSION['user_mail']=$user_mail;
             $_SESSION['id_usuari']=$row['id_usuari'];
+            $idUsuari=$row['id_usuari'];
             $comprobar_invitaciones = $pdo->prepare("select count(id_consulta) consulta from invitacions where email='$user_mail'");
             $comprobar_invitaciones->execute();
             $row = $comprobar_invitaciones->fetch();
 
             if($row['consulta']!='0'){
-                echo "<p>Tienes ".$row['consulta']." consultas pendientes!</p>";
                 $invitaciones = $pdo->prepare("select id_consulta, email, haVotado from invitacions where email='$user_mail'");
                 $invitaciones->execute();
                 $row = $invitaciones->fetch();
-                $contador = 0; 
+                $contador = 0;
                 
-                echo"<table>";
+                echo"<table id='listConsult'>";
                 
-                        echo "<tr>
+                        echo "<tr class='fila'>
                             <td> Consulta </td>
                             <td> Ha votado </td>
+                            <td> Voto </td>
                             <td> Fecha inicio </td>
                             <td> Fecha final </td>
                             <td>    Votar </td>
@@ -59,8 +60,26 @@
                 while ($row) {
                     $id_consulta = $row['id_consulta'];
                     $haVotado = $row['haVotado'];
-                    if ($haVotado == 1) $havotado = 'Si';
-                    else $havotado = 'No';
+                    if ($haVotado == 1){
+                        $havotado = 'Si';
+                        $respu = $pdo->prepare("select id_consultas, id_respuesta, respuesta from respuestas where id_consultas=$id_consulta");
+                        $respu->execute();
+                        $rowRes = $respu->fetch();
+                        while($rowRes){
+                            $res=sha1($rowRes['id_respuesta']);
+                            $respuesta = $pdo->prepare("select id_respuesta from votos where id_usuari='$idUsuari' && id_respuesta='$res'");
+                            $respuesta->execute();
+                            $rowRespuesta = $respuesta->fetch();
+                            if($res===$rowRespuesta['id_respuesta']){
+                                $voto=$rowRes['respuesta'];
+                            }
+                            $rowRes = $respu->fetch();
+                        }
+                    }
+                    else {
+                        $havotado = 'No';
+                        $voto= '-';
+                    }
                     $contador++;
                    
                     $consulta = $pdo->prepare("select id_consulta, pregunta, fecha_inicio, fecha_final from consultes where id_consulta='$id_consulta'");
@@ -69,6 +88,7 @@
                     echo "<tr>";
                         echo "<td> ".$fila['pregunta']."</td>";
                         echo "<td> ".$havotado."</td>";
+                        echo "<td> ".$voto."</td>";
                         echo "<td> ".$fila['fecha_inicio']."</td>";
                         echo "<td> ".$fila['fecha_final']."</td>";  
 

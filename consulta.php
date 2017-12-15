@@ -29,12 +29,12 @@
         <li id="logout"><a href="logout.php"><i><?php echo $login_session; ?></i> Cerrar Sesion</a></li>
     </ul>
     <div class="contenido">
-        <?php     
-            if(isset($_POST['respuesta'])){
-                $insert = $pdo->prepare("INSERT INTO `votos` (`id_votos`, `id_respuesta`, `id_usuari`) VALUES (NULL, '".$_POST['respuesta']."', '".$_SESSION['id_usuari']."')");
-                $insert->execute();  
+        <?php
+        if(isset($_POST['respuesta'])){
+                $insert = $pdo->prepare("INSERT INTO `votos` (`id_votos`, `id_respuesta`, `id_usuari`) VALUES (NULL, '".sha1($_POST['respuesta'])."', '".$_SESSION['id_usuari']."')");
+                $insert->execute();
                 unset($_POST['respuesta']);
-                header('location: listadoConsultas.php'); 
+                header('location: listadoConsultas.php');
             }
            
            if(isset($_POST['id_consulta'])){ 
