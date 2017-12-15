@@ -8,8 +8,9 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <script src="js/snow.js"></script>
     <script src="js/jquery.snow.js"></script>
+    <script src="js/java.js"></script>
 </head>
-<body>
+<body id="perfil" >
     <?php 
           if($login_session == 'admin'){
               header('location: creacioConsultes.php'); 
@@ -19,7 +20,7 @@
         <li><img src="img/logo.png" style="width: 43px"></li>
         <?php
               if($login_session!="admin"){
-                  echo "<li><a href='profile.php'>Perfil</a></li>";
+                  echo "<li><a  class='active' href='profile.php'>Perfil</a></li>";
               }
         ?> 
         <?php
@@ -47,11 +48,18 @@
         <li id="logout"><a href="logout.php"><i><?php echo $login_session; ?></i> Cerrar Sesion</a></li>
     </ul>
     <div class="contenido">
-        <label>Usuario:</label>
-        <input name="username" type="text" value="<?php echo $user; ?>"><br><br>
-        <label>Email:</label>
-        <input id="email" name="email" type="email" value="<?php echo $email; ?>"><br><br>
+        <h3>Datos de registro del usuario</h3>
+        <hr> 
+        <label>Usuario: <?php echo $user; ?></label><br><br>       
+        <label>Email: <?php echo $email; ?></label>  
+        <hr>   
+        <img id="imgvota" src="imagenes/voto2.png"/>       
     </div>
+    <aside id="aside_letf">
+                <img class="imagen" id="imagen" src = ""  /></a>
+                <img class="imagen" id="imagen1" src = "" /></a>        
+                <img class="imagen" id="imagen2" src = "" /></a>             
+    </aside>
     <footer>
         <p>Created by: Diana, Dani</p>
     </footer>

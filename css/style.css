@@ -73,7 +73,7 @@ li a:hover:not(.active) {
 
 .contenido{
     padding: 50px;
-    background-color: #cccccc;
+    background-color:#90b2fc;
     height: 88%;
     margin-bottom: 0;
     position: relative;
@@ -101,7 +101,7 @@ footer>p{
 .edit-icon:hover{
     cursor: pointer;
 }
-table{
+/*table{
     border-radius: 20px;
 
 }
@@ -114,31 +114,28 @@ table, th, td {
 th, td {
     padding: 5px;
     text-align: center;
-}
+}*/
 
 .respuestas{
     display: none;
 }
 #aside_letf{    /*bolsita y vendidos*/
     position: fixed;
-	height: 120px;
-	width: 220px;
-	margin: -600px 0 0 60%;
+    height: 120px;
+    width: 220px;
+    margin: -600px 0 0 60%;
     z-index: 40;
 
 }
 .imagen {
-	height:130px;
-	width:130px;
-	display:block;
+    height:130px;
+    width:130px;
+    display:block;
 }
 #loli{   
   color:green;  
 }
-
-
 /*Keyframes*/
-
 .alert {
     text-align: center;
     padding: 10px;
@@ -167,7 +164,29 @@ th, td {
     cursor: pointer;
     transition: 0.3s;
 }
-
 .closebtn:hover {
     color: black;
+}
+#perfil{
+    background-color:#d4dff7;
+}
+#imgvota{
+    position:fixed;
+    margin:40px -50px;
+    height: 280px;
+    width: 729px;
+}
+#listaConsult{
+     border: 2px solid blue;
+     border-radius: 0px;
+     background-color:#cad9fb;
+     margin:10px; 
+}
+#listaConsult tr td{
+    border: 1px solid blue;
+}
+.fila td{
+    text-align: center;
+      height: 75px;
+      width: 75px;
 }

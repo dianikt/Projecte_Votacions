@@ -47,8 +47,7 @@
                 $row = $invitaciones->fetch();
                 $contador = 0;
                 
-                echo"<table id='listConsult'>";
-                
+                echo"<table id='listaConsult'>";                
                         echo "<tr class='fila'>
                             <td> Consulta </td>
                             <td> Ha votado </td>
@@ -85,7 +84,7 @@
                     $consulta = $pdo->prepare("select id_consulta, pregunta, fecha_inicio, fecha_final from consultes where id_consulta='$id_consulta'");
                     $consulta->execute();
                     $fila = $consulta->fetch();
-                    echo "<tr>";
+                    echo "<tr  class='fila'>";
                         echo "<td> ".$fila['pregunta']."</td>";
                         echo "<td> ".$havotado."</td>";
                         echo "<td> ".$voto."</td>";

@@ -1,17 +1,23 @@
+body{
+     background-image: url("../imagenes/voto.jpg");
+}
 #login {
+    background-color:  #4f84f5 ;
     width:300px;
     float:left;
     border-radius:10px;
     font-family:raleway;
-    border:2px solid #ccc;
+    font-size: 20px;
+    border:5px solid #ccc;
     padding:10px 40px 25px;
-    margin-top:70px
+    margin:70px 20%;
+
 }
 input[type=text],input[type=password] {
     width:99.5%;
     padding:10px;
     margin-top:8px;
-    border:1px solid #ccc;
+    border:5px solid #ccc;
     padding-left:5px;
     font-size:16px;
     font-family:raleway
@@ -26,4 +32,12 @@ input[type=submit] {
     cursor:pointer;
     border-radius:5px;
     margin-bottom:15px
+}
+#reg{
+    margin-left: 100px;
+    color:black;
+    text-decoration-line: underline;
+}
+#reg:hover{
+    color: blue;
 }

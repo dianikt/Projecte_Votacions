@@ -43,13 +43,13 @@
             <h2>Registrarse</h2><br>
             <form action="" method="post">
                 <label>Introduce un usuario:</label>
-                <input id="name" name="usuario" placeholder="username" type="text"><br><br>
+                <input id="name" name="usuario" placeholder="username" type="text"><br>
                 <label>Introduce la contraseña</label>
-                <input id="password" name="password" placeholder="**********" type="password"><br><br>
+                <input id="password" name="password" placeholder="**********" type="password"><br>
                 <label>Repite la contraseña</label>
-                <input id="password" name="password2" placeholder="**********" type="password"><br><br>
+                <input id="password" name="password2" placeholder="**********" type="password"><br>
                 <label>Introduce el email:</label>
-                <input id="email" name="email" placeholder="email" type="text"><br><br><br>
+                <input id="email" name="email" placeholder="email" type="text"><br><br>
                 <input name="submit" type="submit" value="  Envia  ">
                 <span><?php echo $error; ?></span>
             </form>            
