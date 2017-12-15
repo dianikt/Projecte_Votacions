@@ -1,3 +1,11 @@
+/*----------------------------------------------------------
+javascript.js
+Fecha creación: 21/11/2017
+Creadores: Diana K. Ruiz - Daniel Gracia
+Utilizado para comprobación y la implementación de el 
+proyecto de votaciones.
+------------------------------------------------------------*/
+
 var numconsulta = 0;
 var comprueba = 0;
 var crearBotones = true;
@@ -5,6 +13,12 @@ var numRespuestas = 0;
 var contador = 0;
 var today = obtenerFechaActual();
 var hora = obtenerHoraActual();
+
+/*--------------------------------------------------------
+Descripción: Obtiene la hora actual 
+Parametros: ----
+Valor retorno: hoy, la hora actual
+--------------------------------------------------------*/
 function obtenerHoraActual() {
     var hoy = new Date();
     var hh = hoy.getHours();
@@ -19,6 +33,12 @@ function obtenerHoraActual() {
     return hoy;
 }
 
+/*--------------------------------------------------------
+Descripción: Obtiene la fecha actual 
+Parametros: ----
+Valor retorno: today, fecha actual
+--------------------------------------------------------*/
+
 function obtenerFechaActual(){
     var today = new Date();
     var dd = today.getDate();
@@ -27,20 +47,20 @@ function obtenerFechaActual(){
     if(dd<10) {
         dd = '0'+dd
     }
-
     if(mm<10) {
         mm = '0'+mm
     }
-
     today = yyyy + '-' + mm + '-' + dd;
     return today;
 }
- //document.getElementById("demo").innerHTML = "You wrote: " + valor;
 
- // Funcion que añade una pregunta en un tag<li> a una lista <ul>
+/*--------------------------------------------------------
+Descripción: crea cada li de la respuesta
+Parametros: ---
+Valor retorno: false
+--------------------------------------------------------*/
  function nuevaRespuesta()
 {
-
 	var nuevo = document.getElementById("crear_respuesta").value;
     if(nuevo.length>0) // si esta vacio no creara otro input
     {
@@ -49,7 +69,6 @@ function obtenerFechaActual(){
         	contador++;        	
             var li = document.createElement('li');  // creamos el elemento <li>
             li.setAttribute('id', contador);
-
             var input = document.createElement('input');
             var textPregunta = document.createTextNode(nuevo);
 
@@ -57,7 +76,6 @@ function obtenerFechaActual(){
    			input.setAttribute('name', 'respuesta'+contador);  
    			input.setAttribute('value', nuevo);
 
-			
 			var boton = document.createElement('input');	
 		    boton.setAttribute('type', 'button');  //creamos el boton para eliminar
 			boton.setAttribute('value', 'Eliminar');
@@ -75,14 +93,12 @@ function obtenerFechaActual(){
             botonBajar.setAttribute('value', 'Bajar');
             botonBajar.setAttribute('onclick', 'bajarRespuesta('+contador+')');
 
-
             li.appendChild(input);     //añadimos al <li> los elementos creados
             li.appendChild(boton);
             li.appendChild(botonSubir);
             li.appendChild(botonBajar);
 
             document.getElementById("listaDesordenada").appendChild(li); // y luego a la lista el <li>
-
 
             var audio = carga_sonido(1); // cargamos el sonido de giro 
             audio.play();
@@ -94,15 +110,18 @@ function obtenerFechaActual(){
             }
             correcto("Respuesta creada correctamente!")
         }
-    }
-    else{
+    }else{
         error("No puedes crear una respuesta vacia!")
-
     }
     return false;
 }
 
-//Funcion que busca si existe ya el <li> dentrol del <ul> Devuelve true si no existe.
+/*--------------------------------------------------------
+Descripción: busca si hay elementos en la lista
+Parametros: contenido, dentro de la lista de respuestas
+Valor retorno: BOOl, si existe true, sino false
+--------------------------------------------------------*/
+
 function buscarElementoLi(contenido)
 {
     var lista = document.getElementById("listaDesordenada").getElementsByTagName("li");
@@ -113,6 +132,13 @@ function buscarElementoLi(contenido)
     }
     return true;
 }
+
+/*--------------------------------------------------------
+Descripción: baja el elemento de la lista de respuestas
+Parametros: elemento de la lista de respuestas
+Valor retorno: NULL
+--------------------------------------------------------*/
+
 function bajarRespuesta(elemento) {
     var linea=document.getElementById(elemento);
     var cloneLinea = linea.cloneNode(true);
@@ -127,29 +153,27 @@ function bajarRespuesta(elemento) {
         document.getElementById('bajarRespuesta'+elemento).setAttribute('onclick','bajarRespuesta('+(elemento+1)+')');
         document.getElementsByName('respuesta'+elemento)[0].setAttribute('name','respuesta'+(elemento+1));
 
-
         document.getElementById('subirRespuesta'+(elemento+1)).setAttribute('onclick','subirRespuesta('+(elemento)+')');
         document.getElementById('bajarRespuesta'+(elemento+1)).setAttribute('onclick','bajarRespuesta('+(elemento)+')');
         document.getElementsByName('respuesta'+(elemento+1))[0].setAttribute('name','respuesta'+(elemento));
 
-
         document.getElementById('subirRespuesta'+elemento).setAttribute('id','subirRespuesta'+(elemento+1));
         document.getElementById('bajarRespuesta'+elemento).setAttribute('id','bajarRespuesta'+(elemento+1));
-
 
         document.getElementById('subirRespuesta'+(elemento+1)).setAttribute('id','subirRespuesta'+(elemento));
         document.getElementById('bajarRespuesta'+(elemento+1)).setAttribute('id','bajarRespuesta'+(elemento));
 
         document.getElementById(elemento).setAttribute('id',(elemento+1));
         document.getElementById(elemento+1).setAttribute('id',(elemento));
-
-
-
-
     }
-
-
 }
+
+/*--------------------------------------------------------
+Descripción: Sube el elemento de la lista de respuestas
+Parametros: el elemento para subir
+Valor retorno: NULL
+--------------------------------------------------------*/
+
 function subirRespuesta(elemento) {
     var linea=document.getElementById(elemento);
     var cloneLinea = linea.cloneNode(true);
@@ -169,24 +193,24 @@ function subirRespuesta(elemento) {
         document.getElementById('bajarRespuesta'+elemento).setAttribute('onclick','bajarRespuesta('+(elemento-1)+')');
         document.getElementsByName('respuesta'+elemento)[0].setAttribute('name','respuesta'+(elemento-1));
 
-
-
         document.getElementById('subirRespuesta'+(elemento-1)).setAttribute('id','subirRespuesta'+(elemento));
         document.getElementById('bajarRespuesta'+(elemento-1)).setAttribute('id','bajarRespuesta'+(elemento));
-
 
         document.getElementById('subirRespuesta'+elemento).setAttribute('id','subirRespuesta'+(elemento-1));
         document.getElementById('bajarRespuesta'+elemento).setAttribute('id','bajarRespuesta'+(elemento-1));
 
-
         document.getElementById(elemento-1).setAttribute('id',(elemento));
         document.getElementById(elemento).setAttribute('id',(elemento-1));
-
     }
 }
 
-// Funcion para eliminar los elementos
-function eliminarRespuesta(elemento)  // recibe el elemento pulsado
+/*--------------------------------------------------------
+Descripción: elimina la respuesta elegida
+Parametros: recibe el elemento 
+Valor retorno: NULL
+--------------------------------------------------------*/
+
+function eliminarRespuesta(elemento)  
 {
     var id = elemento.parentNode.getAttribute("id");
     var idElemento = document.getElementById(id);
@@ -210,7 +234,15 @@ function eliminarRespuesta(elemento)  // recibe el elemento pulsado
     correcto("Respuesta eliminada correctamente!")
 }
 
-function restarFechas() { //comprueba que la fecha de inicio no sea mayor que la final 
+/*-----------------------------------------------------------------------
+Descripción: comprueba que la fecha de inicio no sea mayor que la final 
+Parametros: --
+Valor retorno: 1, si la fecha es mayor.
+			   2, si la fecha es menor o es el mismo dia
+			   0, si esta bien.
+------------------------------------------------------------------------*/
+
+function restarFechas() { 
 	var fech1 = document.getElementById('fecha_inicio').value;
 	var fech2 = document.getElementById('fecha_final').value;
 
@@ -223,7 +255,12 @@ function restarFechas() { //comprueba que la fecha de inicio no sea mayor que la
     else return 0;
 }
 
-// crea el input de respuesta
+/*-----------------------------------------------------------------------
+Descripción: crea el input de respuesta
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
+
 function crearInputRespuesta(){
 	var padre = document.getElementById("inputRespuesta");
 	var br = document.createElement("br");
@@ -231,23 +268,47 @@ function crearInputRespuesta(){
     input.setAttribute('type', 'text');
     input.setAttribute('id', 'crear_respuesta');   
   	padre.insertBefore(input, padre.childNodes[0]);
+}
 
-} 
+/*-----------------------------------------------------------------------
+Descripción: pone el borde en rojo cuando detecta que esta vacio
+Parametros: elemento 
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
-
-//pone el borde en rojo cuando detecta que esta vacio
 function pintarRojo(elemento){
 	elemento.style.boxShadow='1px 1px 10px 1px #FA0909';
 }
+
+/*-----------------------------------------------------------------------
+Descripción: quita el borde rojo del input
+Parametros: elemento
+Valor retorno: NULL
+------------------------------------------------------------------------*/
+
 function borrarRojo(elemento){ // quita el border rojo
 	elemento.style.boxShadow='';
 }
+
+/*-----------------------------------------------------------------------
+Descripción: borra el enviar de datos
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
+
 function borrarEnviarDatos(){
     var botonEnviar = document.getElementById("enviarPreguntas");
     while (botonEnviar.firstChild) {
         botonEnviar.removeChild(botonEnviar.firstChild);
     }
 }
+
+/*-----------------------------------------------------------------------
+Descripción: borra todas las respuestas
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
+
 function borrarRespuestas(){
     var listaRes = document.getElementById("listaDesordenada");
     if(listaRes.firstChild==null){
@@ -263,6 +324,12 @@ function borrarRespuestas(){
         correcto("Respuestas eliminadas correctamente!")
     }
 }
+
+/*-----------------------------------------------------------------------
+Descripción: editar los inputs 
+Parametros: elemento actual 
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
 function editar(elemento){
     if(elemento=="consulta"){
@@ -291,12 +358,16 @@ function editar(elemento){
             comprueba--;
         }
         comprueba--;
-
     }
 }
 
+/*-----------------------------------------------------------------------
+Descripción: crea la consulta cuando haces click
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
-function crearConsulta(){             // crea la consulta cuando le das al boton !! 
+function crearConsulta(){             
 	var padre = document.getElementById("crearConsultas");
     var input = document.createElement("input");
     var br = document.createElement("br");
@@ -318,9 +389,14 @@ function crearConsulta(){             // crea la consulta cuando le das al boton
 	var label = document.createElement("label");
 	var insertarTexto = document.createTextNode("Crear consulta: ");
     label.appendChild(insertarTexto);
-    padre.parentNode.insertBefore(label, padre.nextSibling);
-    
+    padre.parentNode.insertBefore(label, padre.nextSibling);    
 }
+
+/*-----------------------------------------------------------------------
+Descripción: crea el boton de borrar todas las respuestas
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
 function crearBotonEliminarRespuestas() {
     var padre = document.getElementById("crearRespuesta");
@@ -331,9 +407,13 @@ function crearBotonEliminarRespuestas() {
     padre.insertBefore(boton, padre.childNodes[0]);
 }
 
+/*-----------------------------------------------------------------------
+Descripción: crea el input de la fecha final 
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
-
-function crearFechaFinal(){         // crea los input de las fechas cuando le das al boton !! 	
+function crearFechaFinal(){         
 	var padre = document.getElementById("crearConsultas");
 	var br = document.createElement("br");
     var inputFinal = document.createElement("input");
@@ -368,8 +448,13 @@ function crearFechaFinal(){         // crea los input de las fechas cuando le da
     labelFinal.appendChild(insertarTexto);
     padre.parentNode.insertBefore(labelFinal, padre.nextSibling);
     padre.parentNode.insertBefore(br, padre.nextSibling);
-
 }
+
+/*-----------------------------------------------------------------------
+Descripción: crea el input de la fecha de inicio 
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
 function crearFechaInicio(){  // crea los input de las fechas cuando le das al boton !! 
 	var padre = document.getElementById("crearConsultas");
@@ -404,8 +489,14 @@ function crearFechaInicio(){  // crea los input de las fechas cuando le das al b
 	var insertarTexto = document.createTextNode("Fecha inicio: ");
     labelInicio.appendChild(insertarTexto);
     padre.parentNode.insertBefore(labelInicio, padre.nextSibling); 	
-
 }
+
+/*-----------------------------------------------------------------------
+Descripción: valida los inputs que sean correctos y tengan valor
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
+
 function validarCampos() {
     if((comprueba==5 )&& (crearBotones==true)) {
         crearBotonRespuestas();
@@ -413,6 +504,12 @@ function validarCampos() {
         correcto("Correcto!");
     }
 }
+
+/*-----------------------------------------------------------------------
+Descripción: valida la hora de inicio
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
 function validarHoraIni(){
     var horaIni = document.getElementById("horaInicio").value;
@@ -435,6 +532,12 @@ function validarHoraIni(){
     }
     validarCampos();
 }
+
+/*-----------------------------------------------------------------------
+Descripción: valida la hora final
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
 function validarHoraFin(){
     var horaIni = document.getElementById("horaInicio").value;
@@ -492,6 +595,12 @@ function validarHoraFin(){
 
 }
 
+/*-----------------------------------------------------------------------
+Descripción: valida la fecha de incio 
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
+
 function validarFechaIni(){
     var fechaIni = document.getElementById("fecha_inicio").value;
     var elementoConsulta = document.getElementById("fecha_inicio");
@@ -511,6 +620,13 @@ function validarFechaIni(){
         validarCampos();
     }
 }
+
+/*-----------------------------------------------------------------------
+Descripción: valida la fecha final
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
+
 function validarFechaFin(){
     var fechaFin = document.getElementById("fecha_final").value;
     var fechaIni = document.getElementById("fecha_inicio").value;
@@ -532,6 +648,11 @@ function validarFechaFin(){
     }
 }
 
+/*-----------------------------------------------------------------------
+Descripción: valida que no este el input vacio
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
 function validarCampoVacio(){
 	var consulta = document.getElementById("consulta").value;
@@ -553,8 +674,13 @@ function validarCampoVacio(){
     }
 }
 
+/*-----------------------------------------------------------------------
+Descripción: crea el input para añadir respuesta
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
-function crearBotonRespuestas(){ // crea el boton para añadir respuestas
+function crearBotonRespuestas(){ 
     crearBotonEliminarRespuestas();
     var padre = document.getElementById("crearRespuesta");
     var br = document.createElement("br");
@@ -567,7 +693,13 @@ function crearBotonRespuestas(){ // crea el boton para añadir respuestas
     crearInputRespuesta();
 }
 
-function crearBotonEnviarDatos(){  // boton para enviar los datos al servidor
+/*-----------------------------------------------------------------------
+Descripción: crea el boton para enviar los datos al servidor
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
+
+function crearBotonEnviarDatos(){  
 	var padre = document.getElementById("enviarPreguntas");
 	var br = document.createElement("br");	
     var boton = document.createElement("input");
@@ -582,6 +714,12 @@ function crearBotonEnviarDatos(){  // boton para enviar los datos al servidor
     padre.insertBefore(botonEnviar, padre.childNodes[0]);
 	padre.insertBefore(br, padre.childNodes[0]);
 }
+
+/*-----------------------------------------------------------------------
+Descripción: cambia el valor de disable de los inputs a true 
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
 function habilitarDatos() {
     var consulta = document.getElementById("consulta");
@@ -603,22 +741,31 @@ function habilitarDatos() {
     }
 }
 
+/*-----------------------------------------------------------------------
+Descripción: crea el input de respuesta
+Parametros: --
+Valor retorno: NULL
+------------------------------------------------------------------------*/
+
 function Votaciones()
 {
 	if (numconsulta == 0){		
 		crearFechaFinal();
 		crearFechaInicio();
 		crearConsulta();
-
 		numconsulta++;		
-	}
-	else if(numconsulta>0){
+	}else if(numconsulta>0){
         error('Debes terminar la consulta actual para poder crear otra!!');
-    }
-	
+    }	
 }
 
-function carga_sonido(audio){ //crea y devuelve los sonidos
+/*-----------------------------------------------------------------------
+Descripción: crea y devuelve los sonidos
+Parametros: audio, el sonido que reproducirá
+Valor retorno: audio
+------------------------------------------------------------------------*/
+
+function carga_sonido(audio){ 
     var audio;
     if ( audio == 1) var audio = new Audio('sonidos/GIRAR.WAV');
     else if ( audio == 2) var audio = new Audio('sonidos/FALLAR.WAV');
@@ -626,9 +773,21 @@ function carga_sonido(audio){ //crea y devuelve los sonidos
     return audio;
 }
 
+/*-----------------------------------------------------------------------
+Descripción: desvanece las notificaciones
+Parametros: id
+Valor retorno: NULL
+------------------------------------------------------------------------*/
+
 function desvanecer(id) {
     closeBtn(id,2000);
 }
+
+/*-----------------------------------------------------------------------
+Descripción: boton de cerrar las notificaciones
+Parametros: id, time
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
 function closeBtn(id,time) {
     var padre = document.getElementById(id);
@@ -641,6 +800,12 @@ function closeBtn(id,time) {
         padre.removeAttribute('style');
     },time);
 }
+
+/*-----------------------------------------------------------------------
+Descripción:error, crea el alert de notificación de error
+Parametros: mensaje, que saldrá en la notificación
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
 function error(mensaje){
     var padre = document.getElementById("error");
@@ -656,6 +821,12 @@ function error(mensaje){
     padre.insertBefore(span, padre.childNodes[0]);
     desvanecer("error");
 }
+
+/*-----------------------------------------------------------------------
+Descripción: correcto, notificación correcta
+Parametros: mensaje, que saldrá en la notificación
+Valor retorno: NULL
+------------------------------------------------------------------------*/
 
 function correcto(mensaje){
     var padre = document.getElementById("correcto");
