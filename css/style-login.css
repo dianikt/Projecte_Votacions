@@ -1,5 +1,8 @@
 body{
      background-image: url("../imagenes/voto.jpg");
+     background-repeat:no-repeat;
+     background-size: 100% 120%;
+
 }
 #login {
     background-color:  #4f84f5 ;
