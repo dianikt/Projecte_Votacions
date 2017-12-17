@@ -47,7 +47,7 @@
             
             <?php              
                 if(isset($_POST['consulta_enviar'])){   
-                    $query = $pdo->prepare("INSERT INTO consultes (id_consulta, pregunta, fecha_inicio, fecha_final) VALUES (null,'".$_POST["consulta_enviar"]."','".$_POST["fecha_inicio"]."', '".$_POST["fecha_final"]."')");
+                    $query = $pdo->prepare("INSERT INTO consultes (id_consulta, pregunta, fecha_inicio, hora_inicio, fecha_final, hora_final) VALUES (null,'".$_POST["consulta_enviar"]."','".$_POST["fecha_inicio"]."','".$_POST["hora_inicio"]."', '".$_POST["fecha_final"]."','".$_POST["hora_final"]."')");
                     $query->execute();                        
                
                     $query = $pdo->prepare("SELECT id_consulta FROM consultes WHERE pregunta = '".$_POST['consulta_enviar']."'");
@@ -60,7 +60,7 @@
                 $i=1;
                 while($i > 0){
                     if(isset($_POST['respuesta'.$i])){                      
-                           $insert = $pdo->prepare("INSERT INTO respuestas(id_respuesta, respuesta, id_consultas) VALUES (NULL,   '".$_POST['respuesta'.$i]."', '".$codigo["id_consulta"]."')");                           
+                           $insert = $pdo->prepare("INSERT INTO respuestas (id_respuesta, respuesta, id_consultas, num_votos) VALUES (NULL,   '".$_POST['respuesta'.$i]."', '".$codigo["id_consulta"]."','0')");
                             $insert->execute();
                             unset($_POST['respuesta'.$i]);
                             $i++;

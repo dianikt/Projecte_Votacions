@@ -16,6 +16,10 @@
         <li><img src="img/logo.png" style="width: 43px"></li>
         <li><a href="profile.php">Perfil</a></li>
         <?php
+            function randHash($len=32)
+            {
+                return substr(md5(openssl_random_pseudo_bytes(5)),-$len);
+            }
 	        if($login_session=="admin"){
 	            echo "<li><a href='creacioConsultes.php'>Crear Consulta</a></li>";
 	            echo "<li><a href='form_invitacions.php'>Invitar consulta</a></li>";
@@ -30,11 +34,34 @@
     </ul>
     <div class="contenido">
         <?php
-        if(isset($_POST['respuesta'])){
-                $insert = $pdo->prepare("INSERT INTO `votos` (`id_votos`, `id_respuesta`, `id_usuari`) VALUES (NULL, '".sha1($_POST['respuesta'])."', '".$_SESSION['id_usuari']."')");
-                $insert->execute();
-                unset($_POST['respuesta']);
-                header('location: listadoConsultas.php');
+            if(isset($_POST['respuesta'])){
+                $passwd=sha1($_POST['password']);
+                $comprobar_contra = $pdo->prepare("select id_usuari from usuaris where password='$passwd'");
+                $comprobar_contra->execute();
+                $row = $comprobar_contra->fetch();
+                if($row['id_usuari']==$id_session){
+                    $cambiarHaVotado = $pdo->prepare("UPDATE invitacions SET haVotado = 1 WHERE email = '".$email_session."' and id_consulta = '".$_POST['id_consulta']."'");
+                    $cambiarHaVotado->execute();
+                    $comprobarCantidadVotos = $pdo->prepare("select num_votos from respuestas where id_respuesta='".$_POST['respuesta']."'");
+                    $comprobarCantidadVotos->execute();
+                    $votos = $comprobarCantidadVotos->fetch();
+                    $suma = $votos['num_votos']+1;
+                    $sumarVoto = $pdo->prepare("UPDATE `respuestas` SET `num_votos` = '".$suma."' WHERE `respuestas`.`id_respuesta` = '".$_POST['respuesta']."'");
+                    $sumarVoto->execute();
+                    $rand = randHash(20);
+
+                    $insertVotoOpcion = $pdo->prepare("INSERT INTO `voto_opcion` (`hash`, `id_respuesta`) VALUES ('".$rand."', '".$_POST['respuesta']."')");
+                    $insertVotoOpcion->execute();
+
+                    $insert = $pdo->prepare("INSERT INTO `votos` (`id_votos`, `hash_enc` , `id_usuari`) VALUES (NULL, aes_encrypt('".$rand."', '".$_POST['password']."'), '".$id_session."')");
+                    $insert->execute();
+                    unset($_POST['respuesta']);
+                    unset($_POST['password']);
+                    header('location: listadoConsultas.php');
+                }
+                else{
+                    echo "ERROR: contraseña incorrecta";
+                }
             }
            
            if(isset($_POST['id_consulta'])){ 
@@ -59,10 +86,11 @@
                     $fila_respuesta = $respuesta->fetch();                   
                 } 
                
-                $insert = $pdo->prepare("UPDATE invitacions SET haVotado = 1 WHERE email = '$email_session' and id_consulta = '$id_consulta'");
-                $insert->execute();           
 
-                echo "</div><br>";
+
+               echo "</div><br>";
+                echo "<label>Introdüir contrasenya: </label>";
+                echo "<input type='password' name='password' required/>";
                 echo "<input type='submit' value='Enviar respuesta'/></form><br>";
 
 

@@ -5,7 +5,26 @@
     $fecha_actual = getdate();
     $_SESSION['year']=$fecha_actual['year'];
     $_SESSION['mon']=$fecha_actual['mon'];
-    $_SESSION['day']=$fecha_actual['wday'];
+    $_SESSION['day']=$fecha_actual['mday'];
+    $hora=$fecha_actual['hours']+1;
+    if($fecha_actual['minutes']<10){
+        $minuto="0".$fecha_actual['minutes'];
+    }
+    else{
+        $minuto=$fecha_actual['minutes'];
+    }
+    if(($fecha_actual['hours']+1)==24){
+        $_SESSION['hour']="00:".$minuto;
+    }
+    else{
+        if(($fecha_actual['hours']+1)<10){
+            $_SESSION['hour']="0".$hora.":".$minuto;
+        }
+        else{
+            $_SESSION['hour']=$hora.":".$minuto;
+        }
+
+    }
     // Storing Session
     $user_check=$_SESSION['login_user'];
     // SQL Query To Fetch Complete Information Of User

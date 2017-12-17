@@ -29,7 +29,7 @@
     </ul>
     <div class="contenido">
          <?php
-                          
+
             $coger_email = $pdo->prepare("select id_usuari, email, usuari from usuaris where usuari='$user_check'");
             $coger_email->execute();
             $row = $coger_email->fetch();
@@ -37,6 +37,8 @@
             $_SESSION['user_mail']=$user_mail;
             $_SESSION['id_usuari']=$row['id_usuari'];
             $idUsuari=$row['id_usuari'];
+            $idVotos= array();
+            $voto = "-";
             $comprobar_invitaciones = $pdo->prepare("select count(id_consulta) consulta from invitacions where email='$user_mail'");
             $comprobar_invitaciones->execute();
             $row = $comprobar_invitaciones->fetch();
@@ -46,8 +48,8 @@
                 $invitaciones->execute();
                 $row = $invitaciones->fetch();
                 $contador = 0;
-                
-                echo"<table id='listaConsult'>";                
+
+                echo"<table id='listaConsult'>";
                         echo "<tr class='fila'>
                             <td> Consulta </td>
                             <td> Ha votado </td>
@@ -59,21 +61,44 @@
                 while ($row) {
                     $id_consulta = $row['id_consulta'];
                     $haVotado = $row['haVotado'];
-                    if ($haVotado == 1){
+                    if ($haVotado == 1) {
                         $havotado = 'Si';
-                        $respu = $pdo->prepare("select id_consultas, id_respuesta, respuesta from respuestas where id_consultas=$id_consulta");
-                        $respu->execute();
-                        $rowRes = $respu->fetch();
-                        while($rowRes){
-                            $res=sha1($rowRes['id_respuesta']);
-                            $respuesta = $pdo->prepare("select id_respuesta from votos where id_usuari='$idUsuari' && id_respuesta='$res'");
-                            $respuesta->execute();
-                            $rowRespuesta = $respuesta->fetch();
-                            if($res===$rowRespuesta['id_respuesta']){
-                                $voto=$rowRes['respuesta'];
+                        if (isset($_POST['password'])) {
+                            $passwd = sha1($_POST['password']);
+                            $comprobar_contra = $pdo->prepare("select id_usuari from usuaris where password='$passwd'");
+                            $comprobar_contra->execute();
+                            $row = $comprobar_contra->fetch();
+                            if ($row['id_usuari'] == $id_session) {
+                                $cogerHash = $pdo->prepare("select hash_enc, id_votos from votos where id_usuari='$idUsuari'");
+                                $cogerHash->execute();
+                                $rowHash = $cogerHash->fetch();
+                                while($rowHash){
+                                    if(in_array($rowHash['id_votos'], $idVotos)){
+                                        $rowHash = $cogerHash->fetch();
+                                    }
+                                    else{
+                                        $respu = $pdo->prepare("select hash, id_respuesta from voto_opcion where hash=aes_decrypt( '" . $rowHash['hash_enc'] . "','" . $_POST['password'] . "')");
+                                        $respu->execute();
+                                        $rowRes = $respu->fetch();
+                                        $res = $pdo->prepare("select respuesta from respuestas where id_respuesta=" . $rowRes['id_respuesta'] . "");
+                                        $res->execute();
+                                        $rowRess = $res->fetch();
+                                        $voto=$rowRess['respuesta'];
+                                        array_push($idVotos,$rowHash['id_votos']);
+                                        break;
+                                    }
+                                }
+
+
+
+
                             }
-                            $rowRes = $respu->fetch();
+                            else {
+                                echo "ERROR: contraseña incorrecta";
+                            }
+
                         }
+
                     }
                     else {
                         $havotado = 'No';
@@ -81,39 +106,71 @@
                     }
                     $contador++;
                    
-                    $consulta = $pdo->prepare("select id_consulta, pregunta, fecha_inicio, fecha_final from consultes where id_consulta='$id_consulta'");
+                    $consulta = $pdo->prepare("select id_consulta, pregunta, fecha_inicio, hora_inicio, fecha_final, hora_final from consultes where id_consulta='$id_consulta'");
                     $consulta->execute();
                     $fila = $consulta->fetch();
                     echo "<tr  class='fila'>";
                         echo "<td> ".$fila['pregunta']."</td>";
                         echo "<td> ".$havotado."</td>";
                         echo "<td> ".$voto."</td>";
-                        echo "<td> ".$fila['fecha_inicio']."</td>";
-                        echo "<td> ".$fila['fecha_final']."</td>";  
+                        echo "<td> ".$fila['fecha_inicio']."   ".$fila['hora_inicio']."</td>";
+                        echo "<td> ".$fila['fecha_final']."   ".$fila['hora_final']."</td>";
 
                         $fechaInicio = explode('-', $fila['fecha_inicio']);
                         $fechaFinal = explode('-', $fila['fecha_final']);
+                        $habilitar=0;
+                        if($_SESSION['day']>$fechaInicio[2] && $_SESSION['mon']>$fechaInicio[1] && $_SESSION['year']>$fechaInicio[0] && $_SESSION['day']<$fechaFinal[2] && $_SESSION['mon']<$fechaFinal[1] && $_SESSION['year']<$fechaFinal[0]){
+                            $habilitar=1;
+                        }
+                        if($_SESSION['day']==$fechaInicio[2] && $_SESSION['mon']==$fechaInicio[1] && $_SESSION['year']==$fechaInicio[0]){
 
-                        if(($_SESSION['day']<$fechaInicio[2] and $_SESSION['mon']<$fechaInicio[1] and $_SESSION['year']<$fechaInicio[0])and($_SESSION['day']>$fechaFinal[2] and $_SESSION['mon']>$fechaFinal[1] and $_SESSION['year']>$fechaFinal[0])){
-                             echo "<td><input type='submit' value='votar' disabled/></td>";
+                            if($_SESSION['hour']>=$fila['hora_inicio']) {
+                                $habilitar=1;
+                            }
+                            else{
+                                $habilitar=0;
+                            }
+                        }
+                        if($_SESSION['day']==$fechaFinal[2] && $_SESSION['mon']==$fechaFinal[1] && $_SESSION['year']==$fechaFinal[0]){
+                            if($_SESSION['hour']<=$fila['hora_final']) {
+                                $habilitar=1;
+
+                            }
+                            else {
+                                $habilitar=0;
+
+                            }
+                        }
+                        if($habilitar==1 && $havotado=="No"){
+                            echo "<td>
+                                    <form action='consulta.php' method='POST'>                              
+                                    <input style='display:none' type='text' name ='id_consulta' value='".$id_consulta."'/>
+                                    <input type='submit'  value='votar'></form>
+                                    <form action='sondeos.php' method='POST'>                              
+                                    <input style='display:none' type='text' name ='id_consulta' value='".$id_consulta."'/>
+                                    <input type='submit'  value='Ver sondeos'></form>
+                                    </td>";
                         }
                         else{
-                            $id_consulta = $fila['id_consulta'];
-                            echo "<td> 
-                                <form action='consulta.php' method='POST'>                              
+                            echo "<td><input type='submit' value='votar' disabled/>
+                                <form action='sondeos.php' method='POST'>                              
                                 <input style='display:none' type='text' name ='id_consulta' value='".$id_consulta."'/>
-                                <input type='submit'  value='votar'>
-                                </form></td>";     
+                                <input type='submit'  value='Ver sondeos'></form></td>";
+                            ;
                         }
                         echo "</tr>";              
                     $row = $invitaciones->fetch();
                 }
                 echo"</table>";
+                echo "<form action='' method='POST'>";
+                echo "<label>Introducir contraseña para ver tus votos: </label>";
+                echo "<input type='password' name='password' required/>";
+                echo "<input type='submit' value='Ver respuestas'/></form><br>";
             }
             else {
                 echo "<p>No tienes consultas pendientes!</p>";
             }
-        ?>         
+        ?>
     </div>
     <aside id="aside_letf">
                 <img class="imagen" id="imagen" src = ""  /></a>

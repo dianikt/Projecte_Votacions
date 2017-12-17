@@ -427,15 +427,15 @@ function crearFechaFinal(){
     icon.disabled = true;
     icon.setAttribute('onclick', 'editar("fecha_final")');
     padre.parentNode.insertBefore(icon, padre.nextSibling);
-    input.setAttribute('id','horaFinal');
-    padre.parentNode.insertBefore(input, padre.nextSibling);
-    label.appendChild(document.createTextNode("  Hora final: "));
-    padre.parentNode.insertBefore(label, padre.nextSibling);
     input.required = true;
     input.setAttribute('id','horaFin');
     input.setAttribute('type','time');
     input.setAttribute('onfocusout', 'validarHoraFin()');
+    input.setAttribute('name','hora_final');
     input.disabled = true;
+    padre.parentNode.insertBefore(input, padre.nextSibling);
+    label.appendChild(document.createTextNode("  Hora final: "));
+    padre.parentNode.insertBefore(label, padre.nextSibling);
     inputFinal.required = true;
     inputFinal.setAttribute('type', 'date');
     inputFinal.setAttribute('name', 'fecha_final');
@@ -473,6 +473,7 @@ function crearFechaInicio(){  // crea los input de las fechas cuando le das al b
     input.setAttribute('id','horaInicio');
     input.setAttribute('type','time');
     input.setAttribute('onfocusout', 'validarHoraIni()');
+    input.setAttribute('name','hora_inicio');
     input.disabled = true;
     padre.parentNode.insertBefore(input, padre.nextSibling);
     label.appendChild(document.createTextNode("  Hora inicio: "));

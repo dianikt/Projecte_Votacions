@@ -12,7 +12,6 @@
         <?php
         //preparem i executem la consulta
         if(isset($_POST["email"])){
-            echo $_POST["id"];
             $query = $pdo->prepare("INSERT INTO invitacions (id_invitacio, email, id_consulta, haVotado) VALUES (null, '".$_POST["email"]."','".$_POST["id"]."', 0)");
             $query->execute();
           
@@ -54,7 +53,6 @@
                 <select name="id">Elige una consulta 
                 <option type="text">Selecciona una consulta</option> 
                       <?php
-                            echo $_POST["id"];
                             $preguntas = $pdo->prepare("select id_consulta, pregunta from consultes");
                             $preguntas->execute();
                             $fila = $preguntas->fetch();             
