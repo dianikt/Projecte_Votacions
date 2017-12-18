@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dc4b7049-ac0b-47e4-b137-8597e968ffac" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/form_invitacions.php" afterPath="$PROJECT_DIR$/form_invitacions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/registro.php" afterPath="$PROJECT_DIR$/registro.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -138,25 +137,25 @@
       <file leaf-file-name="form_invitacions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/form_invitacions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="35" column="85" lean-forward="false" selection-start-line="35" selection-start-column="85" selection-end-line="35" selection-end-column="85" />
+            <state relative-caret-position="234">
+              <caret line="28" column="58" lean-forward="false" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
               <folding>
-                <marker date="1513621716871" expanded="true" signature="686:763" ph="select count... invitacions" />
-                <marker date="1513621716871" expanded="true" signature="686:800" ph="select count... invitacions" />
-                <marker date="1513621716871" expanded="true" signature="1068:1198" ph="INSERT INTO invitacions... " />
-                <marker date="1513621716871" expanded="true" signature="1297:1357" ph="select count... invitacions" />
-                <marker date="1513621716871" expanded="true" signature="1297:1377" ph="select count... usuaris" />
-                <marker date="1513621716871" expanded="true" signature="1297:1379" ph="select count... invitacions" />
-                <marker date="1513621716871" expanded="true" signature="1611:1700" ph="select count... usuaris" />
-                <marker date="1513621716871" expanded="true" signature="3641:3808" ph="..." />
-                <marker date="1513621716871" expanded="true" signature="4472:5408" ph="..." />
-                <marker date="1513621716871" expanded="true" signature="4580:5408" ph="..." />
-                <marker date="1513621716871" expanded="true" signature="4873:5408" ph="..." />
-                <marker date="1513621716871" expanded="true" signature="5048:5091" ph="select id_co... consultes" />
-                <marker date="1513621716871" expanded="true" signature="5808:5846" ph="..." />
-                <marker date="1513621716871" expanded="true" signature="5897:6166" ph="..." />
-                <marker date="1513621716871" expanded="true" signature="6167:6251" ph="..." />
-                <marker date="1513621716871" expanded="true" signature="6183:6242" ph="..." />
+                <marker date="1513623229086" expanded="true" signature="686:763" ph="select count... invitacions" />
+                <marker date="1513623229086" expanded="true" signature="686:800" ph="select count... invitacions" />
+                <marker date="1513623229086" expanded="true" signature="1068:1198" ph="INSERT INTO invitacions... " />
+                <marker date="1513623229086" expanded="true" signature="1297:1357" ph="select count... invitacions" />
+                <marker date="1513623229086" expanded="true" signature="1297:1377" ph="select count... usuaris" />
+                <marker date="1513623229086" expanded="true" signature="1297:1379" ph="select count... invitacions" />
+                <marker date="1513623229086" expanded="true" signature="1611:1700" ph="select count... usuaris" />
+                <marker date="1513623229086" expanded="true" signature="3765:3932" ph="..." />
+                <marker date="1513623229086" expanded="true" signature="4596:5532" ph="..." />
+                <marker date="1513623229086" expanded="true" signature="4704:5532" ph="..." />
+                <marker date="1513623229086" expanded="true" signature="4997:5532" ph="..." />
+                <marker date="1513623229086" expanded="true" signature="5172:5215" ph="select id_co... consultes" />
+                <marker date="1513623229086" expanded="true" signature="5932:5970" ph="..." />
+                <marker date="1513623229086" expanded="true" signature="6021:6290" ph="..." />
+                <marker date="1513623229086" expanded="true" signature="6291:6375" ph="..." />
+                <marker date="1513623229086" expanded="true" signature="6307:6366" ph="..." />
               </folding>
             </state>
           </provider>
@@ -361,12 +360,12 @@
       <workItem from="1513350874466" duration="12182000" />
       <workItem from="1513417644771" duration="4266000" />
       <workItem from="1513444603556" duration="11897000" />
-      <workItem from="1513613410573" duration="8249000" />
+      <workItem from="1513613410573" duration="10176000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181315000" />
+    <option name="totallyTimeSpent" value="183242000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="304" y="27" width="1920" height="1081" extended-state="6" />
@@ -941,25 +940,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/form_invitacions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="35" column="85" lean-forward="false" selection-start-line="35" selection-start-column="85" selection-end-line="35" selection-end-column="85" />
+        <state relative-caret-position="234">
+          <caret line="28" column="58" lean-forward="false" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
           <folding>
-            <marker date="1513621716871" expanded="true" signature="686:763" ph="select count... invitacions" />
-            <marker date="1513621716871" expanded="true" signature="686:800" ph="select count... invitacions" />
-            <marker date="1513621716871" expanded="true" signature="1068:1198" ph="INSERT INTO invitacions... " />
-            <marker date="1513621716871" expanded="true" signature="1297:1357" ph="select count... invitacions" />
-            <marker date="1513621716871" expanded="true" signature="1297:1377" ph="select count... usuaris" />
-            <marker date="1513621716871" expanded="true" signature="1297:1379" ph="select count... invitacions" />
-            <marker date="1513621716871" expanded="true" signature="1611:1700" ph="select count... usuaris" />
-            <marker date="1513621716871" expanded="true" signature="3641:3808" ph="..." />
-            <marker date="1513621716871" expanded="true" signature="4472:5408" ph="..." />
-            <marker date="1513621716871" expanded="true" signature="4580:5408" ph="..." />
-            <marker date="1513621716871" expanded="true" signature="4873:5408" ph="..." />
-            <marker date="1513621716871" expanded="true" signature="5048:5091" ph="select id_co... consultes" />
-            <marker date="1513621716871" expanded="true" signature="5808:5846" ph="..." />
-            <marker date="1513621716871" expanded="true" signature="5897:6166" ph="..." />
-            <marker date="1513621716871" expanded="true" signature="6167:6251" ph="..." />
-            <marker date="1513621716871" expanded="true" signature="6183:6242" ph="..." />
+            <marker date="1513623229086" expanded="true" signature="686:763" ph="select count... invitacions" />
+            <marker date="1513623229086" expanded="true" signature="686:800" ph="select count... invitacions" />
+            <marker date="1513623229086" expanded="true" signature="1068:1198" ph="INSERT INTO invitacions... " />
+            <marker date="1513623229086" expanded="true" signature="1297:1357" ph="select count... invitacions" />
+            <marker date="1513623229086" expanded="true" signature="1297:1377" ph="select count... usuaris" />
+            <marker date="1513623229086" expanded="true" signature="1297:1379" ph="select count... invitacions" />
+            <marker date="1513623229086" expanded="true" signature="1611:1700" ph="select count... usuaris" />
+            <marker date="1513623229086" expanded="true" signature="3765:3932" ph="..." />
+            <marker date="1513623229086" expanded="true" signature="4596:5532" ph="..." />
+            <marker date="1513623229086" expanded="true" signature="4704:5532" ph="..." />
+            <marker date="1513623229086" expanded="true" signature="4997:5532" ph="..." />
+            <marker date="1513623229086" expanded="true" signature="5172:5215" ph="select id_co... consultes" />
+            <marker date="1513623229086" expanded="true" signature="5932:5970" ph="..." />
+            <marker date="1513623229086" expanded="true" signature="6021:6290" ph="..." />
+            <marker date="1513623229086" expanded="true" signature="6291:6375" ph="..." />
+            <marker date="1513623229086" expanded="true" signature="6307:6366" ph="..." />
           </folding>
         </state>
       </provider>

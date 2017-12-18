@@ -30,15 +30,17 @@
                         if ($comprobar1['existe'] == 1) {
                             $comprobarPendientes = $pdo->prepare("select count(id_invitacio) invitaciones from invitacions where email='" . $mails[$x] . "'");
                             $comprobarPendientes->execute();
+                            $comprobar2 = $comprobarPendientes->fetch();
                             $headers = "MIME-Version: 1.0" . "\r\n";
                             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                             $headers .= "From: Vota@proyectevota.org" . "\r\n";
-                            $mensaje = "Querido " . $comprobar['usuari'] . ".<br><br>
+                            $mensaje = "Querido " . $comprobar1['usuari'] . ".<br><br>
                                         Tienes una nueva consulta pendiente. <br>
-                                        Tienes " . $comprobar['usuari'] . " consultas pendientes.<br><br>
+                                        Tienes " . $comprobar2['invitaciones'] . " consultas pendientes.<br><br>
                                         Saludos, hasta pronto.";
-                            mail($email[$x], 'Invitació per Votar', $mensaje, $headers);
+                            mail($mails[$x], 'Invitació per Votar', $mensaje, $headers);
                         } else {
+                            echo "entro2";
                             $headers = "MIME-Version: 1.0" . "\r\n";
                             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                             $headers .= "From: Vota@proyectevota.org" . "\r\n";
@@ -46,7 +48,7 @@
                                         Te han invitado a una nueva consulta.
                                         Registrate aqui y accede <a href='http://www.aws2-userdani.tk/~dani/registro.php'>aqui</a><br><br>
                                         Esperamos con entusiasmo su voto!<br>Saludos.";
-                            mail($email[$x], 'Invitació per Votar', $mensaje, $headers);
+                            mail($mails[$x], 'Invitació per Votar', $mensaje, $headers);
                         }
                     }
                     else{
