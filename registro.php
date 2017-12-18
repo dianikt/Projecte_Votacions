@@ -8,6 +8,9 @@
     <script src="js/javascript.js"></script>
 </head>
 <body>
+
+    <div id="error" class=""></div>
+    <div id="correcto" class=""></div>
     <?php
     include('conexionBD.php');  
     $error=''; // Variable To Store Error Message
@@ -22,8 +25,8 @@
             if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 $comprobarDatos = $pdo->prepare("select count(email) existe from usuaris where email='" . $_POST['email'] . "' || usuari='" . $_POST['usuario'] . "'");
                 $comprobarDatos->execute();
-                if($comprobarDatos['existe']==0) {
-
+                $comprobarDatos1 = $comprobarDatos->fetch();
+                if($comprobarDatos1['existe']==0) {
                     // Define $username and $password
                     $usuario = $_POST['usuario'];
                     $password = $_POST['password'];
