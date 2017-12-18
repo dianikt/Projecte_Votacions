@@ -24,7 +24,7 @@
                     if ($comprobarSiYaEstaInvitado1['existe'] == 0) {
                         $query = $pdo->prepare("INSERT INTO invitacions (id_invitacio, email, id_consulta, haVotado) VALUES (null, '" . $mails[$x] . "','" . $_POST["id"] . "', 0)");
                         $query->execute();
-                        $comprobar = $pdo->prepare("select count(email) existe, usuari from usuaris where email='" . $mails[$x] . "'");
+                        $comprobar = $pdo->prepare("select count(email) existe, usuari from usuaris where email='" . $mails[$x] . "' group by usuari");
                         $comprobar->execute();
                         $comprobar1 = $comprobar->fetch();
                         if ($comprobar1['existe'] == 1) {
