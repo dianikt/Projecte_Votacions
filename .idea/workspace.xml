@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc4b7049-ac0b-47e4-b137-8597e968ffac" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/form_invitacions.php" afterPath="$PROJECT_DIR$/form_invitacions.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/registro.php" afterPath="$PROJECT_DIR$/registro.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,14 +55,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registro.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="registro.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/registro.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="82" lean-forward="false" selection-start-line="21" selection-start-column="82" selection-end-line="21" selection-end-column="82" />
+            <state relative-caret-position="450">
+              <caret line="43" column="74" lean-forward="false" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="74" />
               <folding>
-                <marker date="1513620057384" expanded="true" signature="972:1087" ph="select count... invitacions" />
-                <marker date="1513620057384" expanded="true" signature="1540:1640" ph="INSERT INTO usuaris... " />
+                <marker date="1513621594119" expanded="true" signature="972:1087" ph="select count... invitacions" />
+                <marker date="1513621594119" expanded="true" signature="1540:1640" ph="INSERT INTO usuaris... " />
               </folding>
             </state>
           </provider>
@@ -125,7 +126,7 @@
       <file leaf-file-name="profile.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/profile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="954">
+            <state relative-caret-position="876">
               <caret line="53" column="53" lean-forward="false" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
               <folding>
                 <marker date="1513352960201" expanded="true" signature="1348:1411" ph="select usuar... usuaris" />
@@ -134,28 +135,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form_invitacions.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="form_invitacions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/form_invitacions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="39" column="28" lean-forward="false" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+            <state relative-caret-position="360">
+              <caret line="35" column="85" lean-forward="false" selection-start-line="35" selection-start-column="85" selection-end-line="35" selection-end-column="85" />
               <folding>
-                <marker date="1513619839250" expanded="true" signature="686:763" ph="select count... invitacions" />
-                <marker date="1513619839250" expanded="true" signature="686:800" ph="select count... invitacions" />
-                <marker date="1513619839250" expanded="true" signature="1068:1198" ph="INSERT INTO invitacions... " />
-                <marker date="1513619839250" expanded="true" signature="1297:1357" ph="select count... invitacions" />
-                <marker date="1513619839250" expanded="true" signature="1297:1377" ph="select count... usuaris" />
-                <marker date="1513619839250" expanded="true" signature="1297:1379" ph="select count... invitacions" />
-                <marker date="1513619839250" expanded="true" signature="1611:1700" ph="select count... usuaris" />
-                <marker date="1513619839250" expanded="true" signature="3608:3775" ph="..." />
-                <marker date="1513619839250" expanded="true" signature="4439:5375" ph="..." />
-                <marker date="1513619839250" expanded="true" signature="4547:5375" ph="..." />
-                <marker date="1513619839250" expanded="true" signature="4840:5375" ph="..." />
-                <marker date="1513619839250" expanded="true" signature="5015:5058" ph="select id_co... consultes" />
-                <marker date="1513619839250" expanded="true" signature="5775:5813" ph="..." />
-                <marker date="1513619839250" expanded="true" signature="5864:6133" ph="..." />
-                <marker date="1513619839250" expanded="true" signature="6134:6218" ph="..." />
-                <marker date="1513619839250" expanded="true" signature="6150:6209" ph="..." />
+                <marker date="1513621716871" expanded="true" signature="686:763" ph="select count... invitacions" />
+                <marker date="1513621716871" expanded="true" signature="686:800" ph="select count... invitacions" />
+                <marker date="1513621716871" expanded="true" signature="1068:1198" ph="INSERT INTO invitacions... " />
+                <marker date="1513621716871" expanded="true" signature="1297:1357" ph="select count... invitacions" />
+                <marker date="1513621716871" expanded="true" signature="1297:1377" ph="select count... usuaris" />
+                <marker date="1513621716871" expanded="true" signature="1297:1379" ph="select count... invitacions" />
+                <marker date="1513621716871" expanded="true" signature="1611:1700" ph="select count... usuaris" />
+                <marker date="1513621716871" expanded="true" signature="3641:3808" ph="..." />
+                <marker date="1513621716871" expanded="true" signature="4472:5408" ph="..." />
+                <marker date="1513621716871" expanded="true" signature="4580:5408" ph="..." />
+                <marker date="1513621716871" expanded="true" signature="4873:5408" ph="..." />
+                <marker date="1513621716871" expanded="true" signature="5048:5091" ph="select id_co... consultes" />
+                <marker date="1513621716871" expanded="true" signature="5808:5846" ph="..." />
+                <marker date="1513621716871" expanded="true" signature="5897:6166" ph="..." />
+                <marker date="1513621716871" expanded="true" signature="6167:6251" ph="..." />
+                <marker date="1513621716871" expanded="true" signature="6183:6242" ph="..." />
               </folding>
             </state>
           </provider>
@@ -250,8 +251,8 @@
         <option value="$PROJECT_DIR$/listadoConsultas.php" />
         <option value="$PROJECT_DIR$/css/style-login.css" />
         <option value="$PROJECT_DIR$/creacioConsultes.php" />
-        <option value="$PROJECT_DIR$/form_invitacions.php" />
         <option value="$PROJECT_DIR$/registro.php" />
+        <option value="$PROJECT_DIR$/form_invitacions.php" />
       </list>
     </option>
   </component>
@@ -360,12 +361,12 @@
       <workItem from="1513350874466" duration="12182000" />
       <workItem from="1513417644771" duration="4266000" />
       <workItem from="1513444603556" duration="11897000" />
-      <workItem from="1513613410573" duration="6646000" />
+      <workItem from="1513613410573" duration="8249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179712000" />
+    <option name="totallyTimeSpent" value="181315000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="304" y="27" width="1920" height="1081" extended-state="6" />
@@ -807,16 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="954">
-          <caret line="53" column="53" lean-forward="false" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
-          <folding>
-            <marker date="1513352960201" expanded="true" signature="1348:1411" ph="select usuar... usuaris" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/session.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -927,38 +918,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/form_invitacions.php">
+    <entry file="file://$PROJECT_DIR$/profile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="39" column="28" lean-forward="false" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        <state relative-caret-position="876">
+          <caret line="53" column="53" lean-forward="false" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
           <folding>
-            <marker date="1513619839250" expanded="true" signature="686:763" ph="select count... invitacions" />
-            <marker date="1513619839250" expanded="true" signature="686:800" ph="select count... invitacions" />
-            <marker date="1513619839250" expanded="true" signature="1068:1198" ph="INSERT INTO invitacions... " />
-            <marker date="1513619839250" expanded="true" signature="1297:1357" ph="select count... invitacions" />
-            <marker date="1513619839250" expanded="true" signature="1297:1377" ph="select count... usuaris" />
-            <marker date="1513619839250" expanded="true" signature="1297:1379" ph="select count... invitacions" />
-            <marker date="1513619839250" expanded="true" signature="1611:1700" ph="select count... usuaris" />
-            <marker date="1513619839250" expanded="true" signature="3608:3775" ph="..." />
-            <marker date="1513619839250" expanded="true" signature="4439:5375" ph="..." />
-            <marker date="1513619839250" expanded="true" signature="4547:5375" ph="..." />
-            <marker date="1513619839250" expanded="true" signature="4840:5375" ph="..." />
-            <marker date="1513619839250" expanded="true" signature="5015:5058" ph="select id_co... consultes" />
-            <marker date="1513619839250" expanded="true" signature="5775:5813" ph="..." />
-            <marker date="1513619839250" expanded="true" signature="5864:6133" ph="..." />
-            <marker date="1513619839250" expanded="true" signature="6134:6218" ph="..." />
-            <marker date="1513619839250" expanded="true" signature="6150:6209" ph="..." />
+            <marker date="1513352960201" expanded="true" signature="1348:1411" ph="select usuar... usuaris" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/registro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="82" lean-forward="false" selection-start-line="21" selection-start-column="82" selection-end-line="21" selection-end-column="82" />
+        <state relative-caret-position="450">
+          <caret line="43" column="74" lean-forward="false" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="74" />
           <folding>
-            <marker date="1513620057384" expanded="true" signature="972:1087" ph="select count... invitacions" />
-            <marker date="1513620057384" expanded="true" signature="1540:1640" ph="INSERT INTO usuaris... " />
+            <marker date="1513621594119" expanded="true" signature="972:1087" ph="select count... invitacions" />
+            <marker date="1513621594119" expanded="true" signature="1540:1640" ph="INSERT INTO usuaris... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/form_invitacions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="35" column="85" lean-forward="false" selection-start-line="35" selection-start-column="85" selection-end-line="35" selection-end-column="85" />
+          <folding>
+            <marker date="1513621716871" expanded="true" signature="686:763" ph="select count... invitacions" />
+            <marker date="1513621716871" expanded="true" signature="686:800" ph="select count... invitacions" />
+            <marker date="1513621716871" expanded="true" signature="1068:1198" ph="INSERT INTO invitacions... " />
+            <marker date="1513621716871" expanded="true" signature="1297:1357" ph="select count... invitacions" />
+            <marker date="1513621716871" expanded="true" signature="1297:1377" ph="select count... usuaris" />
+            <marker date="1513621716871" expanded="true" signature="1297:1379" ph="select count... invitacions" />
+            <marker date="1513621716871" expanded="true" signature="1611:1700" ph="select count... usuaris" />
+            <marker date="1513621716871" expanded="true" signature="3641:3808" ph="..." />
+            <marker date="1513621716871" expanded="true" signature="4472:5408" ph="..." />
+            <marker date="1513621716871" expanded="true" signature="4580:5408" ph="..." />
+            <marker date="1513621716871" expanded="true" signature="4873:5408" ph="..." />
+            <marker date="1513621716871" expanded="true" signature="5048:5091" ph="select id_co... consultes" />
+            <marker date="1513621716871" expanded="true" signature="5808:5846" ph="..." />
+            <marker date="1513621716871" expanded="true" signature="5897:6166" ph="..." />
+            <marker date="1513621716871" expanded="true" signature="6167:6251" ph="..." />
+            <marker date="1513621716871" expanded="true" signature="6183:6242" ph="..." />
           </folding>
         </state>
       </provider>

@@ -38,10 +38,10 @@
                         $headers = "MIME-Version: 1.0" . "\r\n";
                         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                         $headers .= "From: Vota@proyectevota.org" . "\r\n";
-                        $mensaje = "Bienvenido " . $_POST['usuario'] . ".\n\n
-                                    Tu registro a sido realizado con exito. \n 
-                                    Tus datos de inicio de sesion son los siguientes:\n Usuario: " . $_POST['usuario'] . "\nContraseña: " . $_POST['password'] . "\n\n
-                                    Gracias por registrarte.\nSaludos.";
+                        $mensaje = "Bienvenido " . $_POST['usuario'] . ".<br><br>
+                                    Tu registro a sido realizado con exito. <br> 
+                                    Tus datos de inicio de sesion son los siguientes:<br> Usuario: " . $_POST['usuario'] . "<br>Contraseña: " . $_POST['password'] . "<br><br>
+                                    Gracias por registrarte.<br>Saludos.";
                         mail($_POST['email'], 'Registro con exito', $mensaje, $headers);
                         header("location: index.php");
                     } else {
