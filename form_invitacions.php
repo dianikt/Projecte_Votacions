@@ -7,19 +7,56 @@
 	  <title>Envia invitaciones</title>
 	  <link href="css/style.css" rel="stylesheet" type="text/css">
     <script src="js/java.js"></script>
-   </head> 
+    <script src="js/javascript.js"></script>
+   </head>
     <body>
         <?php
         //preparem i executem la consulta
         if(isset($_POST["email"])){
-            $query = $pdo->prepare("INSERT INTO invitacions (id_invitacio, email, id_consulta, haVotado) VALUES (null, '".$_POST["email"]."','".$_POST["id"]."', 0)");
-            $query->execute();
+            $mails=explode(", ",$_POST['email']);
+            echo count($mails);
+            for($x=0;$x<count($mails);$x++){
+                if (filter_var($mails[$x], FILTER_VALIDATE_EMAIL)) {
+                    $comprobarSiYaEstaInvitado = $pdo->prepare("select count(email) existe from invitacions where email='" . $mails[$x] . "' && id_consulta='" . $_POST["id"] . "'");
+                    $comprobarSiYaEstaInvitado->execute();
+                    if ($comprobarSiYaEstaInvitado['existe'] == 0) {
+                        $query = $pdo->prepare("INSERT INTO invitacions (id_invitacio, email, id_consulta, haVotado) VALUES (null, '" . $mails[$x] . "','" . $_POST["id"] . "', 0)");
+                        $query->execute();
+                        $comprobar = $pdo->prepare("select count(email) existe, usuari from usuaris where email='" . $mails[$x] . "'");
+                        $comprobar->execute();
+                        if ($comprobar['existe'] == 1) {
+                            $comprobarPendientes = $pdo->prepare("select count(id_invitacio) invitaciones from invitacions where email='" . $mails[$x] . "'");
+                            $comprobarPendientes->execute();
+                            $headers = "MIME-Version: 1.0" . "\r\n";
+                            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                            $headers .= "From: Vota@proyectevota.org" . "\r\n";
+                            $mensaje = "Querido " . $comprobar['usuari'] . ".\n\n
+                                        Tienes una nueva consulta pendiente. \n 
+                                        Tienes " . $comprobar['usuari'] . " consultas pendientes.\n\n
+                                        Saludos, hasta pronto.";
+                            mail($email[$x], 'Invitació per Votar', $mensaje, $headers);
+                        } else {
+                            $headers = "MIME-Version: 1.0" . "\r\n";
+                            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                            $headers .= "From: Vota@proyectevota.org" . "\r\n";
+                            $mensaje = "Querido usuario.\n\n
+                                        Te han invitado a una nueva consulta.
+                                        Registrate aqui y accede: \n http://www.aws2-userdani.tk/~dani/registro.php \n\n
+                                        Esperamos con entusiasmo su voto!\nSaludos.";
+                            mail($email[$x], 'Invitació per Votar', $mensaje, $headers);
+                        }
+                    }
+                    else{
+                        echo "<script>error('El usuario con el mail: ".$mails[$x]." ya esta invitado a esta consulta.')</script>";
+                    }
+                }
+                else{
+                    echo "<script>error('La dirección de correo ".$mails[$x]." no es valida.')</script>";
+                }
+            }
+
           
-            $headers = "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-            $headers .= "From: Vota@proyectevota.org"  . "\r\n";
-            $mensaje = "Ha sido invitado a una consulta.";
-            mail($_POST["email"], 'Invitació per Votar', $mensaje, $headers);
+
             
          }
         ?>
@@ -46,9 +83,9 @@
         <div class="contenido">
             <h3>Invitaciones</h3>
 
-            <form method="POST" action="form_invitacions.php">
-                <label>Introduce un nuevo email:</label>
-                <input type="email" name="email"><br>
+            <form method="POST" action="form_invitacions.php" id="invi">
+                <label>Introduce un nuevo email:</label><br>
+                <textarea placeholder="example@example.com, other@example.com" rows="4" cols="50" name="email" form="invi"></textarea><br>
                 <label>Introduce un id existente:</label>
                 <select name="id">Elige una consulta 
                 <option type="text">Selecciona una consulta</option> 

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Iniciar Sesion</title>
+    <title>Registrarse</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/style-login.css" rel="stylesheet" type="text/css">
 </head>
@@ -17,19 +17,31 @@
         else if ($_POST['password'] !== $_POST['password2']) {
             $error = "Las contraseñas deben ser iguales!!!";
         }
-        else
-        {
-         // Define $username and $password            
-            $usuario=$_POST['usuario'];
-            $password=$_POST['password'];
-            $email=$_POST['email'];
-            $passw = SHA1($password);
-            $query = $pdo->prepare("INSERT INTO usuaris (id_usuari, usuari, password, email)VALUES(NULL, '$usuario', '$passw', '$email')");           
-            $row = $query->execute();    
-            if ($row == 1){
-                header("location: index.php"); 
-            }else{
-                $error = "No se ha podido insertar en la baase de datos";
+        else{
+            if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                // Define $username and $password
+                $usuario = $_POST['usuario'];
+                $password = $_POST['password'];
+                $email = $_POST['email'];
+                $passw = SHA1($password);
+                $query = $pdo->prepare("INSERT INTO usuaris (id_usuari, usuari, password, email)VALUES(NULL, '$usuario', '$passw', '$email')");
+                $row = $query->execute();
+                if ($row == 1) {
+                    $headers = "MIME-Version: 1.0" . "\r\n";
+                    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                    $headers .= "From: Vota@proyectevota.org" . "\r\n";
+                    $mensaje = "Bienvenido " . $_POST['usuario'] . ".\n\n
+                                Tu registro a sido realizado con exito. \n 
+                                Tus datos de inicio de sesion son los siguientes:\n Usuario: " . $_POST['usuario'] . "\nContraseña: " . $_POST['password'] . "\n\n
+                                Gracias por registrarte.\nSaludos.";
+                    mail($_POST['email'], 'Registro con exito', $mensaje, $headers);
+                    header("location: index.php");
+                } else {
+                    echo "<script>error('No se ha podido insertar en la baase de datos!')</script>";
+                }
+            }
+            else{
+                echo "<script>error('El email introducido no es valido!')</script>";
             }
         }
     }
