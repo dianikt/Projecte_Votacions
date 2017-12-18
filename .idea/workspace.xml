@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc4b7049-ac0b-47e4-b137-8597e968ffac" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/form_invitacions.php" afterPath="$PROJECT_DIR$/form_invitacions.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/registro.php" afterPath="$PROJECT_DIR$/registro.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,10 +57,11 @@
       <file leaf-file-name="registro.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/registro.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+            <state relative-caret-position="126">
+              <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
               <folding>
-                <marker date="1513617291134" expanded="true" signature="1026:1126" ph="INSERT INTO usuaris... " />
+                <marker date="1513618013187" expanded="true" signature="852:967" ph="select count... invitacions" />
+                <marker date="1513618013187" expanded="true" signature="1359:1459" ph="INSERT INTO usuaris... " />
               </folding>
             </state>
           </provider>
@@ -138,8 +137,8 @@
       <file leaf-file-name="form_invitacions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/form_invitacions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="49" column="130" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="108">
+              <caret line="9" column="44" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
                 <marker date="1513616761152" expanded="true" signature="635:712" ph="select count... invitacions" />
                 <marker date="1513616761152" expanded="true" signature="635:749" ph="select count... invitacions" />
@@ -361,12 +360,12 @@
       <workItem from="1513350874466" duration="12182000" />
       <workItem from="1513417644771" duration="4266000" />
       <workItem from="1513444603556" duration="11897000" />
-      <workItem from="1513613410573" duration="3880000" />
+      <workItem from="1513613410573" duration="4614000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176946000" />
+    <option name="totallyTimeSpent" value="177680000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="304" y="27" width="1920" height="1081" extended-state="6" />
@@ -930,8 +929,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/form_invitacions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="49" column="130" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="108">
+          <caret line="9" column="44" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <marker date="1513616761152" expanded="true" signature="635:712" ph="select count... invitacions" />
             <marker date="1513616761152" expanded="true" signature="635:749" ph="select count... invitacions" />
@@ -955,10 +954,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/registro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        <state relative-caret-position="126">
+          <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
           <folding>
-            <marker date="1513617291134" expanded="true" signature="1026:1126" ph="INSERT INTO usuaris... " />
+            <marker date="1513618013187" expanded="true" signature="852:967" ph="select count... invitacions" />
+            <marker date="1513618013187" expanded="true" signature="1359:1459" ph="INSERT INTO usuaris... " />
           </folding>
         </state>
       </provider>
