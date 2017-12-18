@@ -16,10 +16,10 @@
     $error=''; // Variable To Store Error Message
     if (isset($_POST['submit'])) {
         if (empty($_POST['password']) || empty($_POST['password2']) ||  empty($_POST['usuario']) || empty($_POST['email'])) {
-            $error = "Todos los campos deben estar llenos!!!";
+            echo "<script>error('Todos los campos deben estar llenos!!!')</script>";
         }
         else if ($_POST['password'] !== $_POST['password2']) {
-            $error = "Las contraseñas deben ser iguales!!!";
+            echo "<script>error('Las contraseñas deben ser iguales!!!')</script>";
         }
         else{
             if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
