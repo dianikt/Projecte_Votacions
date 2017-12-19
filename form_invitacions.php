@@ -40,7 +40,6 @@
                                         Saludos, hasta pronto.";
                             mail($mails[$x], 'Invitació per Votar', $mensaje, $headers);
                         } else {
-                            echo "entro2";
                             $headers = "MIME-Version: 1.0" . "\r\n";
                             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                             $headers .= "From: Vota@proyectevota.org" . "\r\n";
