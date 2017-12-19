@@ -212,6 +212,7 @@ Valor retorno: NULL
 
 function eliminarRespuesta(elemento)  
 {
+    contador--;
     var id = elemento.parentNode.getAttribute("id");
     var idElemento = document.getElementById(id);
     idElemento.parentNode.removeChild(idElemento);
@@ -226,8 +227,8 @@ function eliminarRespuesta(elemento)
         listaRes[x].childNodes[3].setAttribute('id','bajarRespuesta'+(y));
         y++;
     }
-    y=1;
     numRespuestas--;
+    
     if(numRespuestas<2){
         borrarEnviarDatos();
     }
