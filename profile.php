@@ -34,7 +34,7 @@
                 echo "<li><a href='listadoConsultas.php'>Lista consultas</a></li>";
             }
         ?>  
-        <?php 
+        <?php
             $usuario = $_SESSION['login_user'];
             $idUsuario = $id_session;           
             // SQL query to fetch information of registerd users and finds user match.
@@ -42,7 +42,10 @@
             $query->execute();
             $row = $query->fetch();
             $user = $row['usuari'];
-            $email = $row['email'];  
+            $email = $row['email'];
+            if(isset($_POST['si'])){
+                include('load.php');
+            }
         ?>
 
         <li id="logout"><a href="logout.php"><i><?php echo $login_session; ?></i> Cerrar Sesion</a></li>
@@ -53,7 +56,13 @@
         <label>Usuario: <?php echo $user; ?></label><br><br>       
         <label>Email: <?php echo $email; ?></label>  
         <hr>   
-        <img id="imgvota" src="imagenes/voto2.png"/>       
+        <img id="imgvota" src="imagenes/voto2.png"/>
+        <form action="" method="post">
+            <input name="si" style="display: none;" type="text">
+            <input name="submit" type="submit" value="NO CLIQUES AQUI POR FAVOR!">
+        </form>
+
+
     </div>
     <aside id="aside_letf">
                 <img class="imagen" id="imagen" src = ""  /></a>
